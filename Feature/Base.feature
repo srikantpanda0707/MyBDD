@@ -1,7 +1,10 @@
 Feature: MyBDD
 
   Scenario: Login the application
-    Given I launch the browser
-    When I get the url
+
+    Given I enter valid ID
+    When I click submit button
     Then I verify the home page
-    And I close the browser
+    And I verify the validity
+
+
