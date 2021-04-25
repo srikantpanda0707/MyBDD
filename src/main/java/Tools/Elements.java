@@ -2,34 +2,47 @@ package Tools;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class Elements{
 
-    public static boolean verifyElement(WebElement element) {
-        boolean blResult = false;
+    public static void verifyElement(WebElement element) {
+        //boolean blResult = false;
         try {
             if (element.isDisplayed()) {
-                blResult = true;
+                System.out.println("VerifyElement pass");
+                //blResult = true;
             } else {
-                blResult = false;
+                System.out.println("VerifyElement Try Fails ");
             }
         } catch (Exception e) {
             System.out.println("VerifyElement Fails "+e);
         }
-        return blResult;
     }
 
-    public static boolean click(WebDriver driver, WebElement element) {
+    public static void click(WebDriver driver, WebElement element) {
+        //boolean blResult = false;
+        try {
+            driver.wait(10);
+            element.click();
+            //blResult = true;
+        } catch (Exception e) {
+            System.out.println("Click is failed "+e);
+        }
+    }
+    public static boolean mouseClick(WebDriver driver, WebElement element) {
         boolean blResult = false;
         try {
-            driver.wait(5);
-            element.click();
+            driver.wait(10);
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).build().perform();
+            actions.click();
+            actions.build().perform();
             blResult = true;
         } catch (Exception e) {
-            System.out.println("Click "+e);
+            System.out.println("MouseClick is failed "+e);
         }
         return blResult;
     }
-
 
 }

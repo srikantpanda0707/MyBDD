@@ -3,7 +3,7 @@ package Tools;
 
 import org.openqa.selenium.WebElement;
 
-public class TextBox extends BaseClass {
+public class TextBox  {
 
     public static boolean EnterValue(WebElement TxtBox, String StrValue){
        boolean IsEntred = false;

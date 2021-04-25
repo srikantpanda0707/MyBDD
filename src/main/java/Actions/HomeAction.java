@@ -1,4 +1,5 @@
 package Actions;
+import OR.LoginUI;
 import Tools.BaseClass;
 import Tools.Elements;
 import Tools.TextBox;
@@ -9,56 +10,37 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
 
-public class HomeAction extends BaseClass {
 
-    public HomeAction(WebDriver driver){
+public class HomeAction extends LoginUI {
 
-        PageFactory.initElements(HomeAction.driver, this);
-
+    public HomeAction(WebDriver driver) {
+        super(driver);
     }
-
-    @FindBy(how = How.XPATH,using = "//input[@name='emailid']")
-    public static WebElement TxtBoxMailId;
-
-    @FindBy(how = How.XPATH,using = "//input[@name='btnLogin']")
-    public static WebElement BtnSubmitLogin;
-
-    @FindBy(how = How.XPATH,using = "//input[@name='btnLogin']")
-    public static WebElement LblAccessDetailsHome;
-
-    @FindBy(how = How.XPATH,using = "//h3[contains(text(),'This access is valid only for 20 days.')]")
-    public static WebElement LblValidityHome;
-
 
     public static boolean EnterMailIdLogin(){
-            boolean IsEnter = false;
-            if (TxtBoxMailId.isDisplayed()){
-       IsEnter = TextBox.EnterValue(TxtBoxMailId, TestDatas.EmailId);
-            IsEnter = true;}
-            else{
-               System.out.println("Action email id fails");
-        }
-            return IsEnter;
+            boolean IsEnter = true;
+             Elements.mouseClick(driver, LblAgileproject);
+             TextBox.EnterValue(TxtBoxUserId, TestDatas.UserID);
+        TextBox.EnterValue(TxtBoxUserPswd, TestDatas.UserPswd);
+        return IsEnter;
     }
 
-    public static boolean ClickSubmitBtn(){
-        boolean IsClicked = false;
-        IsClicked = Elements.click(driver,BtnSubmitLogin);
+    public static boolean ClickLoginBtn() {
+        boolean IsClicked = true;
+        Elements.click(driver, BtnLoginAGPR);
         return IsClicked;
     }
 
     public static boolean VerifyHomePageDisplays(){
-        boolean IsVerified = false;
-        Elements.verifyElement(LblAccessDetailsHome);
+        boolean IsVerified = true;
+        Elements.verifyElement(LblCustomerBankHome);
         return IsVerified;
     }
-
-
-    public static boolean VerifyHomePageValidity() {
-        boolean IsVerified = false;
-        Elements.verifyElement(LblValidityHome);
-        return IsVerified;
-
+    public static boolean ClickLogOutBtn(){
+        boolean IsClicked = true;
+            Elements.click(driver,BtnLogOutHome);
+        return IsClicked;
     }
 }

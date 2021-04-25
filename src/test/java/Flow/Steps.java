@@ -18,7 +18,7 @@ public class Steps {
 
     @When("I click submit button")
     public void iClickSubmitButton() {
-        assertTrue(HomeAction.ClickSubmitBtn());
+        assertTrue(HomeAction.ClickLoginBtn());
     }
 
     @Then("I verify the home page")
@@ -28,6 +28,6 @@ public class Steps {
 
     @And("I verify the validity")
     public void iVerifyTheValidity() {
-        assertTrue(HomeAction.VerifyHomePageValidity());
+        assertTrue(HomeAction.ClickLogOutBtn());
     }
 }
