@@ -20,10 +20,12 @@ public class HomeAction extends LoginUI {
     }
 
     public static boolean EnterMailIdLogin(){
-            boolean IsEnter = true;
-             Elements.mouseClick(driver, LblAgileproject);
+            boolean IsEnter = false;
+            if (LblAgileproject.isDisplayed()){
+             Elements.click(driver, LblAgileproject);
              TextBox.EnterValue(TxtBoxUserId, TestDatas.UserID);
         TextBox.EnterValue(TxtBoxUserPswd, TestDatas.UserPswd);
+            IsEnter = true;}
         return IsEnter;
     }
 
