@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class Elements{
+public class Elements extends BaseClass{
+
+    public Elements(){super();}
 
     public static void verifyElement(WebElement element) {
         //boolean blResult = false;
@@ -23,8 +25,7 @@ public class Elements{
     public static void click(WebDriver driver, WebElement element) {
         //boolean blResult = false;
         try {
-            driver.wait(10);
-            element.click();
+             element.click();
             //blResult = true;
         } catch (Exception e) {
             System.out.println("Click is failed "+e);
@@ -33,7 +34,6 @@ public class Elements{
     public static boolean mouseClick(WebDriver driver, WebElement element) {
         boolean blResult = false;
         try {
-            driver.wait(10);
             Actions actions = new Actions(driver);
             actions.moveToElement(element).build().perform();
             actions.click();

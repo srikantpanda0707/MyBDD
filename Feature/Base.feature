@@ -1,4 +1,4 @@
-Feature: MyBDD
+Feature: Base
 
   Scenario: Login the application
 

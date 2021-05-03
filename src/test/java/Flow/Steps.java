@@ -31,4 +31,34 @@ public class Steps {
     public void iVerifyTheValidity() {
         assertTrue(hm.ClickLogOutBtn());
     }
+
+    @And("I click mini statement tab")
+    public void iClickMiniStatementTab() {
+        assertTrue(hm.ClickMiniStatBtn());
+    }
+
+    @Then("I select the statement number from the document")
+    public void iSelectTheStatementNumberFromTheDocument() {
+        assertTrue(hm.SelectStatementNum());
+    }
+
+    @And("I click submit button in mini statement form window")
+    public void iClickSubmitButtonInMiniStatementFormWindow() {
+        assertTrue(hm.ClickSubmitMSF());
+    }
+
+    @And("Verify the statement displays")
+    public void verifyTheStatementDisplays() {
+        assertTrue(hm.VerifyStatementDisplays());
+    }
+
+    @And("I click log out button")
+    public void iClickLogOutButton() {
+        assertTrue(hm.ClickLogOutBtn());
+    }
+
+    @Then("I click continue button in statement window")
+    public void iClickContinueButtonInStatementWindow() {
+        assertTrue(hm.ClickContinueButton());
+    }
 }
