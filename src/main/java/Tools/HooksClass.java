@@ -1,13 +1,16 @@
 package Tools;
 
+import Utils.ConfigDataProvider;
 import Utils.TestDatas;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.junit.BeforeClass;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class HooksClass extends BaseClass {
+
+    ConfigDataProvider Config;
 
     @Before
     public void LaunchBrowser(){
@@ -21,4 +24,6 @@ public class HooksClass extends BaseClass {
     public void QuitBrowser(){
         driver.quit();
     }
+
+    public void Object(){ Config = new ConfigDataProvider();}
 }
