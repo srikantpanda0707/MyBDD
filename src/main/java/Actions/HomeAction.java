@@ -1,6 +1,7 @@
 package Actions;
 import OR.LoginUI;
 import Utils.TestDatas;
+import org.hamcrest.core.Is;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -70,4 +71,52 @@ public class HomeAction extends LoginUI {
 
 
     }
+
+    public boolean clicktelecomproject() {
+        boolean IsClicked = true;
+        WebElement ele = driver.findElement(By.xpath(BtnGuruTab.replace("<<REPLACE>>",TestDatas.Telecom)));
+        ele.click();
+        return IsClicked;
+    }
+
+    public boolean clickaddcustome() {
+        boolean IsClicked = true;
+        WebElement ele = driver.findElement(By.xpath(BtnGuruTab.replace("<<REPLACE>>",TestDatas.TelecomAddCust)));
+        ele.click();
+        return IsClicked;
+    }
+
+    public boolean Verifyaddcustomer() {
+        boolean IsVerify = true;
+        LblAddCustomer.isDisplayed();
+        return IsVerify;
+    }
+
+    public boolean Addnewtelecomcust() {
+        boolean IsAdd = true;
+        BtnRadPendingAddCust.click();
+        TxtFnameAddCust.sendKeys(TestDatas.FnameTelecom);
+        TxtLnameAddCust.sendKeys(TestDatas.LnameTelecomAddCust);
+        TxtEmailAddCust.sendKeys(TestDatas.EmailTelecomAddCust);
+        TxtAddressAddCust.sendKeys(TestDatas.AddressTelecomAddCust);
+        TxtPhoneNumAddCust.sendKeys(TestDatas.MobileNumTelecomAddCust);
+        BtnSubmitAddCust.click();
+        //WebElement Added = driver.findElement(By.xpath(String.valueOf(LblAddedCustAddCust)));
+        String  ABC = LblAddedCustAddCust.getText();
+        BtnHomeAddCust.click();
+        BtnPayBillingTelecomPage.click();
+        TxtEnterCustIDPayBill.sendKeys(ABC);
+        BtnSubmitPayBill.click();
+        return IsAdd;
+    }
+
+    public boolean VerifyThecustomerGotCreated() {
+        boolean IsVerify = true;
+        //WebElement Added = driver.findElement(By.xpath(String.valueOf(LblAddedCustPayBill)));
+        String  ABC = LblAddedCustPayBill.getText();
+        String Customer = String.valueOf(ABC.contains(TestDatas.FnameTelecom));
+        Customer.equals(TestDatas.FnameTelecom);
+        System.out.println(ABC);
+        System.out.println(Customer);
+        return IsVerify;    }
 }

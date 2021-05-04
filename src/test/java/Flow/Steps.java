@@ -61,4 +61,29 @@ public class Steps {
     public void iClickContinueButtonInStatementWindow() {
         assertTrue(hm.ClickContinueButton());
     }
+
+    @Given("I click telecom project")
+    public void iClickTelecomProject() {
+        assertTrue(hm.clicktelecomproject());
+    }
+
+    @And("I click Add customer option")
+    public void iClickAddCustomerOption() {
+        assertTrue(hm.clickaddcustome());
+    }
+
+    @When("I verify the add customer page displays")
+    public void iVerifyTheAddCustomerPageDisplays() {
+        assertTrue(hm.Verifyaddcustomer());
+    }
+
+    @Then("I add a new customer in telecom page")
+    public void iAddANewCustomerInTelecomPage() {
+        assertTrue(hm.Addnewtelecomcust());
+    }
+
+    @And("I Verify the added customer listing in the pay billing page")
+    public void iVerifyTheAddedCustomerListingInThePayBillingPage() {
+        assertTrue(hm.VerifyThecustomerGotCreated());
+    }
 }

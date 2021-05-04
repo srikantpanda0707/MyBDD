@@ -1,25 +1,10 @@
 Feature: Starter
 
- Scenario: Verify Mini Statement Of Customer
 
-   Given I enter valid ID
-   When I click submit button
-   Then I verify the home page
-   And I click mini statement tab
-   Then I select the statement number from the document
-   And I click submit button in mini statement form window
-   And Verify the statement displays
-   And I click log out button
+  Scenario: Creating New Telecom Customer
 
-  Scenario: Verify Home page after mini Statement Of Customer
-
-    Given I enter valid ID
-    When I click submit button
-    Then I verify the home page
-    And I click mini statement tab
-    Then I select the statement number from the document
-    And I click submit button in mini statement form window
-    And Verify the statement displays
-    Then I click continue button in statement window
-    And I verify the home page
-    And I click log out button
+    Given I click telecom project
+    And I click Add customer option
+    When I verify the add customer page displays
+    Then I add a new customer in telecom page
+    And I Verify the added customer listing in the pay billing page

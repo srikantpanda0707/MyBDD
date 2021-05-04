@@ -50,12 +50,51 @@ public class LoginUI extends BaseClass {
     @FindBy(how = How.XPATH,using = "//a[contains(text(),'Continue')]")
     public WebElement BtnContinueMSF;
 
+    public String BtnGuruTab = new StringBuilder("//a[contains(text(),'")
+            .append("<<REPLACE>>")
+            .append("')]").toString();
 
+    @FindBy(how = How.XPATH,using = "//h1[contains(text(),'Add Customer')]")
+    public WebElement LblAddCustomer;
 
+    @FindBy(how = How.XPATH,using = "//input[@id='pending']//following::label[@for='pending']")
+    public WebElement BtnRadPendingAddCust;
 
+    @FindBy(how = How.XPATH,using = "//input[@name='fname']")
+    public WebElement TxtFnameAddCust;
 
+    @FindBy(how = How.XPATH,using = "//input[@name='lname']")
+    public WebElement TxtLnameAddCust;
 
+    @FindBy(how = How.XPATH,using = "//input[@name='emailid']")
+    public WebElement TxtEmailAddCust;
 
+    @FindBy(how = How.XPATH,using = "//textarea[@name='addr']")
+    public WebElement TxtAddressAddCust;
+
+    @FindBy(how = How.XPATH,using = "//input[@name='telephoneno']")
+    public WebElement TxtPhoneNumAddCust;
+
+    @FindBy(how = How.XPATH,using = "//input[@value='Submit']")
+    public WebElement BtnSubmitAddCust;
+
+    @FindBy(how = How.XPATH,using = "//td[@align='center']//h3")
+    public WebElement LblAddedCustAddCust;
+
+    @FindBy(how = How.XPATH,using = "//a[@class='button' and contains(text(),'Home')]")
+    public WebElement BtnHomeAddCust;
+
+    @FindBy(how = How.XPATH,using = "//h3//a[contains(text(),'Pay Billing')]")
+    public WebElement BtnPayBillingTelecomPage;
+
+    @FindBy(how = How.XPATH,using = "//input[@name='customer_id']")
+    public WebElement TxtEnterCustIDPayBill;
+
+    @FindBy(how = How.XPATH,using = "//input[@value='submit']")
+    public WebElement BtnSubmitPayBill;
+
+    @FindBy(how = How.XPATH,using = "//h1[contains(text(),'Pay Billing')]//following::h3")
+    public WebElement LblAddedCustPayBill;
 
 }
 
