@@ -22,8 +22,8 @@ public class ConfigDataProvider {
 
     }
 
-    public String GetUrl(){
-        return pro.getProperty("URL");
+    public String GetUrl(String data){
+        return pro.getProperty(data);
     }
 
 }

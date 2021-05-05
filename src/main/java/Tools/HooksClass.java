@@ -4,7 +4,6 @@ import Utils.ConfigDataProvider;
 import Utils.TestDatas;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.junit.BeforeClass;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 

@@ -116,6 +116,7 @@ public class HomeAction extends LoginUI {
         String  ABC = LblAddedCustPayBill.getText();
         String Customer = String.valueOf(ABC.contains(TestDatas.FnameTelecom));
         Customer.equals(TestDatas.FnameTelecom);
+        ABC.matches(TestDatas.FnameTelecom);
         System.out.println(ABC);
         System.out.println(Customer);
         return IsVerify;    }
