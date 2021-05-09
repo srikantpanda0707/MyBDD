@@ -1,5 +1,6 @@
-package Tools;
+package Hooks;
 
+import Tools.BaseClass;
 import Utils.ConfigDataProvider;
 import Utils.TestDatas;
 import io.cucumber.java.After;
@@ -10,13 +11,15 @@ import java.util.concurrent.TimeUnit;
 public class HooksClass extends BaseClass {
 
     ConfigDataProvider Config;
+    ConfigDataProvider cdp = new ConfigDataProvider();
 
     @Before
     public void LaunchBrowser(){
-        System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/jai/Downloads/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        property = cdp.returnProperty();
         driver.get(TestDatas.URL);
     }
     @After

@@ -1,7 +1,6 @@
 package Actions;
 import OR.LoginUI;
 import Utils.TestDatas;
-import org.hamcrest.core.Is;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
