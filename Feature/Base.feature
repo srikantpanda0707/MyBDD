@@ -5,7 +5,7 @@ Feature: Base
     Given I enter valid ID
     When I click submit button
     Then I verify the home page
-    And I verify the validityx
+    And I verify the validity
 
 
   Scenario: Verify Mini Statement Of Customer
