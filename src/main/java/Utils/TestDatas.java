@@ -12,6 +12,7 @@ public class TestDatas {
     public static String EmailTelecomAddCust = "Test@gmail.com";
     public static String AddressTelecomAddCust = "Test Automation";
     public static String MobileNumTelecomAddCust = "9840984098";
+    public static String PaymentGateway = "Payment Gateway Project";
 
 
 

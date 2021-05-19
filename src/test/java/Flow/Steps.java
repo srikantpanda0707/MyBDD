@@ -86,4 +86,9 @@ public class Steps {
     public void iVerifyTheAddedCustomerListingInThePayBillingPage() {
         assertTrue(hm.VerifyThecustomerGotCreated());
     }
+
+    @When("I Verify the telecom page getting displays")
+    public void iVerifyTheTelecomPageGettingDisplays() {
+        assertTrue(hm.VerifyTelecomPage());
+    }
 }

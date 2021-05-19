@@ -119,4 +119,10 @@ public class HomeAction extends LoginUI {
         System.out.println(ABC);
         System.out.println(Customer);
         return IsVerify;    }
+
+    public boolean VerifyTelecomPage() {
+        boolean IsVerify = true;
+        PhoneIcontelecomPage.isDisplayed();
+        return IsVerify;
+    }
 }
