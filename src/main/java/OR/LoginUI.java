@@ -96,9 +96,6 @@ public class LoginUI extends BaseClass {
     @FindBy(how = How.XPATH,using = "//h1[contains(text(),'Pay Billing')]//following::h3")
     public WebElement LblAddedCustPayBill;
 
-    @FindBy(how = How.XPATH,using = "//div[@class='flex-item image fit round']")
-    public WebElement PhoneIcontelecomPage;
-
 
 }
 

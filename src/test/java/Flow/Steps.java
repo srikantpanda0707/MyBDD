@@ -87,8 +87,4 @@ public class Steps {
         assertTrue(hm.VerifyThecustomerGotCreated());
     }
 
-    @When("I Verify the telecom page getting displays")
-    public void iVerifyTheTelecomPageGettingDisplays() {
-        assertTrue(hm.VerifyTelecomPage());
-    }
 }

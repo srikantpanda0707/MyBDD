@@ -1,5 +1,5 @@
 target/**
-test-output/*
-testoutput/*
-.idea/*
+test-output/**
+testoutput/**
+.idea/**
 **/*.class
