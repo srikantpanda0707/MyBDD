@@ -1,5 +1,6 @@
 Feature: Base
 
+  @Smoke
   Scenario: Login the application
 
     Given I enter valid ID

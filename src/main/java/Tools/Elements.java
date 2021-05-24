@@ -9,6 +9,7 @@ public class Elements extends BaseClass{
 
     public Elements(){super();}
 
+
     public static void verifyElement(WebElement element) {
         try {
             if (element.isDisplayed()) {

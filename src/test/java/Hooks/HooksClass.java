@@ -1,6 +1,7 @@
 package Hooks;
 
 import Tools.BaseClass;
+import Tools.Sync;
 import Utils.ConfigDataProvider;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -16,6 +17,7 @@ public class HooksClass extends BaseClass {
         System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+//        Sync.ImplicityWait(20);
         driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
         property = cdp.returnProperty();
         driver.get(property.getProperty("URL"));

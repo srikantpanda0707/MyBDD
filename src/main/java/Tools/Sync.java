@@ -7,11 +7,8 @@ import org.openqa.selenium.support.ui.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class Sync extends BaseClass {
+public class Sync extends BaseClass  {
 
-    public Sync(){
-        super();
-    }
 
     public static void waitForSeconds(long lngSeconds) {
         try {

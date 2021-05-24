@@ -1,5 +1,6 @@
 package Actions;
 import OR.LoginUI;
+import Tools.Elements;
 import Utils.TestDatas;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,12 +13,12 @@ public class HomeAction extends LoginUI {
     }
 
     public boolean EnterMailIdLogin(){
-            boolean IsEnter = false;
-            if (LblAgileproject.isDisplayed()){
-                LblAgileproject.click();
+            boolean IsEnter = true;
+        Elements.click(LblAgileproject);
+//                LblAgileproject.click();
                 TxtBoxUserId.sendKeys(TestDatas.UserID);
                 TxtBoxUserPswd.sendKeys(TestDatas.UserPswd);
-                    IsEnter = true;}
+
         return IsEnter;
     }
 
