@@ -1,4 +1,4 @@
-package Flow;
+package parallel;
 
 import Actions.HomeAction;
 import io.cucumber.java.en.And;

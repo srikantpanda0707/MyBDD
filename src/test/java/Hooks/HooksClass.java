@@ -1,7 +1,6 @@
 package Hooks;
 
 import Tools.BaseClass;
-import Tools.Sync;
 import Utils.ConfigDataProvider;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

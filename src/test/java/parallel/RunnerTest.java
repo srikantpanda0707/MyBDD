@@ -1,4 +1,4 @@
-package Runner;
+package parallel;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "Feature",
-        glue = {"Flow","Hooks"},
+@CucumberOptions(features = "src/test/resources/parallel",
+        glue = {"parallel","Hooks"},
         plugin = {"pretty","html:testoutput/testReport.html","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 //        tags = "@Smoke",
         monochrome = true
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 
 //https://cucumber.io/docs/guides/parallel-execution/
 
-public class CucumberRunnerTest {
+public class RunnerTest {
 
 
 }
