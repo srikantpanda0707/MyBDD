@@ -41,7 +41,7 @@ public class Sync extends BaseClass  {
 
     }
 
-    public static void ExplicityWait(WebDriver driver, WebElement element, int timeout){
+    public static WebElement ExplicityWait(WebDriver driver, WebElement element, int timeout){
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeout);
@@ -52,7 +52,7 @@ public class Sync extends BaseClass  {
         }
 
 
-
+        return element;
     }
 
 

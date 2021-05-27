@@ -31,14 +31,17 @@ public class Elements extends BaseClass{
         }
     }
 
-    public static void Jsclick(WebDriver driver, WebElement element) {
+    public static boolean Jsclick(WebDriver driver, WebElement element) {
+        boolean isClicked = false;
         try {
             Sync.PageWait(3);
             JavascriptExecutor executor = (JavascriptExecutor) driver;
             executor.executeScript("arguments[0].click();", element);
+            isClicked = true;
         } catch (Exception e) {
             System.out.println("JsClick is failed "+e);
         }
+        return isClicked;
     }
 
     public static void MouseClick(WebDriver driver, WebElement element) {

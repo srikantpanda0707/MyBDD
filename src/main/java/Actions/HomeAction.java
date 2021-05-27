@@ -1,6 +1,7 @@
 package Actions;
 import OR.LoginUI;
 import Tools.Elements;
+import Tools.TextBox;
 import Utils.TestDatas;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,15 +17,18 @@ public class HomeAction extends LoginUI {
             boolean IsEnter = true;
         Elements.click(LblAgileproject);
 //                LblAgileproject.click();
-                TxtBoxUserId.sendKeys(TestDatas.UserID);
-                TxtBoxUserPswd.sendKeys(TestDatas.UserPswd);
+        TextBox.EnterValue(TxtBoxUserId,TestDatas.UserID );
+        TextBox.EnterValue(TxtBoxUserPswd,TestDatas.UserPswd );
+//                TxtBoxUserId.sendKeys(TestDatas.UserID);
+//                TxtBoxUserPswd.sendKeys(TestDatas.UserPswd);
 
         return IsEnter;
     }
 
     public boolean ClickLoginBtn() {
         boolean IsClicked = true;
-        BtnLoginAGPR.click();
+        Elements.click(BtnLoginAGPR);
+//        BtnLoginAGPR.click();
         return IsClicked;
     }
 
