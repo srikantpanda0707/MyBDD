@@ -6,7 +6,7 @@ displayScenario: true
 displayDetailed: true
 
 summaryConfig:
-  title: Grasshopper PDF Report
+  title: My BDD Automation
   dataBackgroundColor: 4F0CC8
   titleColor: FF0000
   dateColor: 969696

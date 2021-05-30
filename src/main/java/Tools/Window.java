@@ -3,7 +3,7 @@ package Tools;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class Window {
@@ -21,44 +21,56 @@ public class Window {
         return blResult;
     }
 
-    public static boolean switchwindowByName(WebDriver driver) {
-        boolean isWindowSwitched = false;
+    public static void switchwindowByName(WebDriver driver) {
         String currentWinHandle = driver.getWindowHandle();
         System.out.println("currentWinHandle is " + currentWinHandle);
-        try {
+
             if (currentWinHandle != "") {
                 driver.switchTo().window(currentWinHandle);
-                isWindowSwitched = true;
+                System.out.println("Swithced to current window");
             } else {
-                isWindowSwitched = false;
+                System.out.println("Not Swithced to current window");
             }
-        } catch (Exception e) {
-            System.out.println("switchwindowByName  "+e.getMessage());
-        }
-        return isWindowSwitched;
 
     }
 
-    public static boolean switchtoChildWindow(WebDriver driver, WebElement element){
-        boolean isChildWindowSwitched = false;
-        try {
-            String mainWindowHandle = driver.getWindowHandle();
-            Set<String> allWindowHandles = driver.getWindowHandles();
-            Iterator<String> iterator = allWindowHandles.iterator();
-            while (iterator.hasNext()) {
-                String ChildWindow = iterator.next();
-                if (!mainWindowHandle.equalsIgnoreCase(ChildWindow)) {
-                    driver.switchTo().window(ChildWindow);
-                    WebElement text = element;
-                    System.out.println("Heading of child window is " + text.getText());
-                }
+    public static void switchtoChildWindow(WebDriver driver){
+
+        String parent = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
+        int count = allWindows.size();
+        System.out.println("total window present" + count);
+        for (String Child:allWindows){
+            if (!parent.equalsIgnoreCase(Child)){
+                driver.switchTo().window(Child);
+                Sync.waitForSeconds(3);
+                System.out.println("Swithced to child window");
+            }else if(parent.equalsIgnoreCase(Child)) {
+                driver.switchTo().window(parent);
+                System.out.println("Not Swithced to child window" + driver.getTitle());
             }
         }
-        catch (Exception e){
-            System.out.println("switchtoChildWindow  "+e.getMessage());
-        }
-        return  isChildWindowSwitched;
     }
+
+    public static void switchtoTab(WebDriver driver, int number ){
+
+        String parent = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
+        int count = allWindows.size();
+        System.out.println("total window present" + count);
+        ArrayList<String> tabs = new ArrayList<>(allWindows);
+        for (String Child:tabs){
+            if (!parent.equalsIgnoreCase(Child)){
+                driver.switchTo().window(tabs.get(number));
+                Sync.waitForSeconds(3);
+                System.out.println("Swithced to child window");
+            }else if(parent.equalsIgnoreCase(Child)) {
+                driver.switchTo().window(parent);
+                System.out.println("Not Swithced to child window" + driver.getTitle());
+            }
+        }
+    }
+
 
     public static boolean closeWindow(WebDriver driver) {
         boolean blResult = false;

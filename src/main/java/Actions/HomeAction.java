@@ -39,17 +39,20 @@ public class HomeAction extends LoginUI {
     }
     public boolean ClickLogOutBtn(){
         boolean IsClicked = true;
-        BtnLogOutHome.click();
+        Elements.click(BtnLogOutHome);
+//        BtnLogOutHome.click();
         return IsClicked;
     }
     public boolean ClickMiniStatBtn() {
         boolean IsClicked = true;
-        BtnMiniStatementHome.click();
+        Elements.click(BtnMiniStatementHome);
+//        BtnMiniStatementHome.click();
         return IsClicked;
     }
     public boolean SelectStatementNum() {
         boolean IsClicked = true;
-        BtnStatementNum.click();
+        Elements.click(BtnStatementNum);
+//        BtnStatementNum.click();
         WebElement ele = driver.findElement(By.xpath(DWMinistatement.replace("<<REPLACE>>",TestDatas.StatementNum)));
         ele.click();
         return IsClicked;
@@ -57,7 +60,8 @@ public class HomeAction extends LoginUI {
 
     public boolean ClickSubmitMSF() {
         boolean IsClicked = true;
-        BtnSubmitMSF.click();
+        Elements.click(BtnSubmitMSF);
+//        BtnSubmitMSF.click();
         return IsClicked;
     }
 
@@ -70,7 +74,8 @@ public class HomeAction extends LoginUI {
 
     public boolean ClickContinueButton() {
         boolean IsClicked = true;
-        BtnContinueMSF.click();
+        Elements.click(BtnContinueMSF);
+//        BtnContinueMSF.click();
         return IsClicked;
 
 

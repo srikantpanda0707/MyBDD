@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class ConfigDataProvider {
 
-    public Properties DataProvider() {
+    public  Properties DataProvider() {
 
         Properties pro = new Properties();
 

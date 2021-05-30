@@ -4,21 +4,26 @@ import Tools.BaseClass;
 import Utils.ConfigDataProvider;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.concurrent.TimeUnit;
+
+import java.util.Properties;
 
 public class HooksClass extends BaseClass {
 
-    ConfigDataProvider cdp = new ConfigDataProvider();
+    BaseClass BC = new BaseClass();
+ConfigDataProvider cdp = new ConfigDataProvider();
+    private Properties property;
 
-    @Before
+ @Before
     public void LaunchBrowser(){
-        System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-//        Sync.ImplicityWait(20);
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+
+//        System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+//        driver = new ChromeDriver();
+//     WebDriverManager.chromedriver().setup();
+//     driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         property = cdp.returnProperty();
+        BC.Init_Driver(property.getProperty("browser"));
         driver.get(property.getProperty("URL"));
     }
     @After
