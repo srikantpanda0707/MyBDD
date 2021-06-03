@@ -7,7 +7,8 @@ import org.openqa.selenium.support.ui.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class Sync extends BaseClass  {
+public class Sync extends BaseClass   {
+//    protected static WebDriver driver;
 
 
     public static void waitForSeconds(long lngSeconds) {

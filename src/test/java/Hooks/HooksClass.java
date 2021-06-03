@@ -4,12 +4,16 @@ import Tools.BaseClass;
 import Utils.ConfigDataProvider;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
-public class HooksClass extends BaseClass {
+public class HooksClass extends BaseClass  {
 
-    BaseClass BC = new BaseClass();
+
 ConfigDataProvider cdp = new ConfigDataProvider();
     private Properties property;
 
@@ -18,17 +22,21 @@ ConfigDataProvider cdp = new ConfigDataProvider();
 
 //        System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
 //        driver = new ChromeDriver();
-//     WebDriverManager.chromedriver().setup();
-//     driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+     WebDriverManager.chromedriver().setup();
+     driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//     BaseClass instanceDriver = BaseClass.getInstanceDriver();
         property = cdp.returnProperty();
-        BC.Init_Driver(property.getProperty("browser"));
-        driver.get(property.getProperty("URL"));
+     driver.get(property.getProperty("URL"));
+//        driver = instanceDriver.Init_Driver(property.getProperty("browser"));
+
+
     }
     @After
-    public void QuitBrowser(){
-        driver.quit();
+    public void TearDown(){
+     BaseClass.QuitBrowser();
     }
 
 }

@@ -5,9 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class Elements extends BaseClass{
-
-    public Elements(){super();}
+public class Elements {
 
 
     public static void verifyElement(WebElement element) {

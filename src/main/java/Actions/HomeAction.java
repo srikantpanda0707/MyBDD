@@ -17,8 +17,8 @@ public class HomeAction extends LoginUI {
             boolean IsEnter = true;
         Elements.click(LblAgileproject);
 //                LblAgileproject.click();
-        TextBox.EnterValue(TxtBoxUserId,TestDatas.UserID );
-        TextBox.EnterValue(TxtBoxUserPswd,TestDatas.UserPswd );
+        TextBox.enterValue(driver,TxtBoxUserId, TestDatas.UserID);
+        TextBox.enterValue(driver,TxtBoxUserPswd, TestDatas.UserPswd);
 //                TxtBoxUserId.sendKeys(TestDatas.UserID);
 //                TxtBoxUserPswd.sendKeys(TestDatas.UserPswd);
 
@@ -34,7 +34,8 @@ public class HomeAction extends LoginUI {
 
     public boolean VerifyHomePageDisplays(){
         boolean IsVerified = true;
-        LblCustomerBankHome.isDisplayed();
+        TextBox.verifyElement(LblCustomerBankHome);
+//        LblCustomerBankHome.isDisplayed();
         return IsVerified;
     }
     public boolean ClickLogOutBtn(){
@@ -68,7 +69,7 @@ public class HomeAction extends LoginUI {
     public boolean VerifyStatementDisplays() {
         boolean IsVerify = true;
         WebElement ele = driver.findElement(By.xpath(LblSelectedStNum.replace("<<REPLACE>>",TestDatas.StatementNum)));
-        ele.isDisplayed();
+        TextBox.verifyElement(ele);
         return IsVerify;
     }
 
@@ -97,6 +98,7 @@ public class HomeAction extends LoginUI {
 
     public boolean Verifyaddcustomer() {
         boolean IsVerify = true;
+        TextBox.verifyElement(LblAddCustomer);
         LblAddCustomer.isDisplayed();
         return IsVerify;
     }
