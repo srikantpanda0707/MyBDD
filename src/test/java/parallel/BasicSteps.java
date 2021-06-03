@@ -1,7 +1,6 @@
 package parallel;
 
 import Actions.BasicAction;
-import Actions.HomeAction;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,11 +11,11 @@ import static org.junit.Assert.assertTrue;
 public class BasicSteps {
     BasicAction ba = new BasicAction();
 
-        @Given("I verify selenium easy page opens")
-        public void i_verify_selenium_easy_page_opens() {
-            assertTrue(ba.VerifySeleniumEasyDisplays());
+    @Given("I verify selenium easy page opens")
+    public void i_verify_selenium_easy_page_opens() {
+        assertTrue(ba.VerifySeleniumEasyDisplays());
 
-        }
+    }
 
 
     @When("I click demo home button selenium easy page")
@@ -32,5 +31,30 @@ public class BasicSteps {
     @And("I click start practice")
     public void iClickStartPractice() {
         assertTrue(ba.ClickStartPracticeBtn());
+    }
+
+    @Given("I clicked the sample form demo option")
+    public void iClickedTheSampleFormDemoOption() {
+        assertTrue(ba.ClickSimpleFormDemoBtn());
+    }
+
+    @When("I enter Valid Message In the simple input text box")
+    public void iEnterValidMessageInTheSimpleInputTextBox() {
+        assertTrue(ba.EnterMessageSimpleInputTxtBox());
+    }
+
+    @Then("I verify the entered message displays")
+    public void iVerifyTheEnteredMessageDisplays() {
+        assertTrue(ba.VerifyMessageDisplaysSFD());
+    }
+
+    @When("I Enter Two input details")
+    public void iEnterTwoInputDetails() {
+        assertTrue(ba.EnterValueIntwoInputTxtBox());
+    }
+
+    @Then("I verify the added details displays")
+    public void iVerifyTheAddedDetailsDisplays() {
+        assertTrue(ba.VerifyGetTotalDisplaysSFD());
     }
 }

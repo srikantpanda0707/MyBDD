@@ -19,6 +19,7 @@ public class Alert {
     public static boolean acceptAlert(WebDriver driver) {
         boolean isAlertAccepted = false;
         try {
+            Sync.waitForSeconds(3);
             driver.switchTo().alert().accept();
             isAlertAccepted = true;
         } catch (Exception e) {
@@ -30,6 +31,7 @@ public class Alert {
     public static boolean dismissAlert(WebDriver driver){
         boolean isAlertDismissed = false;
         try {
+            Sync.waitForSeconds(3);
             driver.switchTo().alert().dismiss();
             isAlertDismissed = true;
         }

@@ -78,6 +78,16 @@ public class TextBox   {
         return strText;
     }
 
+    public static void CompareText(WebDriver driver, WebElement element, String Str){
+
+        if (element.isDisplayed()){
+            String ST = getText(driver, element);
+            if (ST.equals(Str)){
+                System.out.println(ST);
+            }
+        }
+    }
+
     public static void clearValue(WebDriver driver, WebElement element) {
 
         if (element.isDisplayed()) {
