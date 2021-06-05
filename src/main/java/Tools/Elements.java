@@ -1,5 +1,7 @@
 package Tools;
 
+import Utils.TestDatas;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,18 +18,25 @@ public class Elements {
                 System.out.println("VerifyElement Try Fails ");
             }
         } catch (Exception e) {
-            System.out.println("VerifyElement Fails "+e);
+            System.out.println("VerifyElement Fails " + e);
         }
     }
 
     public static void click(WebElement element) {
         try {
             Sync.PageWait(3);
-             element.click();
+            element.click();
         } catch (Exception e) {
-            System.out.println("Click is failed "+e);
+            System.out.println("Click is failed " + e);
         }
     }
+
+    public static void Builberclick(WebDriver driver, String element, String strValue) {
+
+        WebElement ele = driver.findElement(By.xpath(element.replace("<<REPLACE>>", strValue)));
+        ele.click();
+    }
+
 
     public static boolean Jsclick(WebDriver driver, WebElement element) {
         boolean isClicked = false;
@@ -37,7 +46,7 @@ public class Elements {
             executor.executeScript("arguments[0].click();", element);
             isClicked = true;
         } catch (Exception e) {
-            System.out.println("JsClick is failed "+e);
+            System.out.println("JsClick is failed " + e);
         }
         return isClicked;
     }
@@ -51,7 +60,7 @@ public class Elements {
             actions.build().perform();
 
         } catch (Exception e) {
-            System.out.println("MouseClick is failed "+e);
+            System.out.println("MouseClick is failed " + e);
         }
 
     }
@@ -62,11 +71,11 @@ public class Elements {
             actions.moveToElement(element).build().perform();
             Sync.PageWait(10);
         } catch (Exception e) {
-            System.out.println("MouseClick is failed "+e);
+            System.out.println("MouseClick is failed " + e);
         }
     }
 
-    public static void dragAndDropXpath(WebElement dragElement,WebElement dropElement, WebDriver driver) {
+    public static void dragAndDropXpath(WebElement dragElement, WebElement dropElement, WebDriver driver) {
         try {
             try {
                 if (dragElement.isDisplayed() && dropElement.isDisplayed()) {
@@ -78,11 +87,11 @@ public class Elements {
                     System.out.println("Element not found to drag");
                 }
             } catch (Exception e) {
-                System.out.println("Drag n Drop If Failed "+e);
+                System.out.println("Drag n Drop If Failed " + e);
             }
 
         } catch (Exception e) {
-            System.out.println("Drag n Drop is failed "+e);
+            System.out.println("Drag n Drop is failed " + e);
         }
     }
 

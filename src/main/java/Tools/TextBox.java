@@ -67,6 +67,7 @@ public class TextBox   {
         return blResult;
     }
 
+
     public static String getText(WebDriver driver, WebElement element) {
         String strText ="";
         try {

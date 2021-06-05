@@ -57,4 +57,66 @@ public class BasicSteps {
     public void iVerifyTheAddedDetailsDisplays() {
         assertTrue(ba.VerifyGetTotalDisplaysSFD());
     }
+
+    @Given("I click the check box option")
+    public void iClickTheCheckBoxOption() {
+        assertTrue(ba.ClickCheckBoxOptionBtn());
+    }
+
+    @When("I click the check box and verify in check box option")
+    public void iClickTheCheckBoxAndVerifyInCheckBoxOption() {
+        assertTrue(ba.ClickAndVerifyThecheckBoxOption());
+    }
+
+    @Given("I click the radio button demo option")
+    public void iClickTheRadioButtonDemoOption() {
+        assertTrue(ba.ClickRadioButtonOptionBtn());
+    }
+
+    @When("I check radio button demo and verify")
+    public void iCheckRadioButtonDemoAndVerify() {
+        assertTrue(ba.ClickRadioButtonandVerify());
+    }
+
+    @Then("I check group radio button and verify")
+    public void iCheckGroupRadioButtonAndVerify() {
+        assertTrue(ba.ClickGroupRadioButtonandVerify());
+    }
+
+    @Given("I click drop down demo option")
+    public void iClickDropDownDemoOption() {
+        assertTrue(ba.ClickDropDownOptionBtn());
+    }
+
+    @When("I Select a day from the dropdown and verify")
+    public void iSelectADayFromTheDropdownAndVerify() {
+        assertTrue(ba.SelectSingleDropDownAndVerify());
+
+    }
+
+    @Then("I check group dropdown selected")
+    public void iCheckGroupDropdownSelected() {
+        assertTrue(ba.SelectGroupDropDownAndVerify());
+    }
+
+    @Given("I click the js alert option")
+    public void iClickTheJsAlertOption() {
+        assertTrue(ba.ClickJSAlterOption());
+
+    }
+
+    @When("I Accept and dismiss the alert")
+    public void iAcceptAndDismissTheAlert() {
+        assertTrue(ba.AcceptandDismissAlertJSA());
+    }
+
+    @Then("I enter value and accept alert and verify the text displays")
+    public void iEnterValueAndAcceptAlertAndVerifyTheTextDisplays() {
+        assertTrue(ba.EntervalueAcceptAlert());
+    }
+
+    @And("I enter value and dismiss alert and verify text not displays")
+    public void iEnterValueAndDismissAlertAndVerifyTextNotDisplays() {
+        assertTrue(ba.EntervalueDismissAlert());
+    }
 }

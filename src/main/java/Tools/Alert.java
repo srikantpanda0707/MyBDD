@@ -56,6 +56,19 @@ public class Alert {
         boolean SendAlertText = false;
         try {
             driver.switchTo().alert().sendKeys(enterVal);
+            driver.switchTo().alert().accept();
+            SendAlertText = true;
+        } catch (Exception e) {
+            System.out.println("acceptAlertByText catch " + e.getMessage());
+        }
+        return SendAlertText;
+    }
+
+    public static boolean DismissAlertByText(WebDriver driver, String enterVal ) {
+        boolean SendAlertText = false;
+        try {
+            driver.switchTo().alert().sendKeys(enterVal);
+            driver.switchTo().alert().dismiss();
             SendAlertText = true;
         } catch (Exception e) {
             System.out.println("acceptAlertByText catch " + e.getMessage());

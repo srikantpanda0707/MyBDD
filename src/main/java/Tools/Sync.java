@@ -11,7 +11,7 @@ public class Sync extends BaseClass   {
 //    protected static WebDriver driver;
 
 
-    public static void waitForSeconds(long lngSeconds) {
+    public static void waitForSeconds(int lngSeconds) {
         try {
             Thread.sleep( lngSeconds);
 
