@@ -34,20 +34,26 @@ public class Window {
 
     }
 
+    public static void switchToParentWindow(WebDriver driver) {
+        String currentWinHandle = driver.getWindowHandle();
+        System.out.println("currentWinHandle is " + currentWinHandle);
+        driver.switchTo().window(currentWinHandle);
+
+    }
+
     public static void switchtoChildWindow(WebDriver driver){
 
         String parent = driver.getWindowHandle();
         Set<String> allWindows = driver.getWindowHandles();
         int count = allWindows.size();
-        System.out.println("total window present" + count);
+        System.out.println("total window present " + count);
         for (String Child:allWindows){
             if (!parent.equalsIgnoreCase(Child)){
                 driver.switchTo().window(Child);
-                Sync.waitForSeconds(3);
+                Sync.waitForSeconds(3000);
                 System.out.println("Swithced to child window");
-            }else if(parent.equalsIgnoreCase(Child)) {
-                driver.switchTo().window(parent);
-                System.out.println("Not Swithced to child window" + driver.getTitle());
+            }else {
+                System.out.println("Not Swithced to child window");
             }
         }
     }
@@ -57,18 +63,36 @@ public class Window {
         String parent = driver.getWindowHandle();
         Set<String> allWindows = driver.getWindowHandles();
         int count = allWindows.size();
-        System.out.println("total window present" + count);
+        System.out.println("total window present " + count);
         ArrayList<String> tabs = new ArrayList<>(allWindows);
         for (String Child:tabs){
             if (!parent.equalsIgnoreCase(Child)){
                 driver.switchTo().window(tabs.get(number));
-                Sync.waitForSeconds(3);
+                Sync.waitForSeconds(3000);
                 System.out.println("Swithced to child window");
             }else if(parent.equalsIgnoreCase(Child)) {
                 driver.switchTo().window(parent);
                 System.out.println("Not Swithced to child window" + driver.getTitle());
             }
         }
+    }
+
+    public static boolean GetWindowName(WebDriver driver) {
+        boolean blResult = false;
+        String window = driver.getWindowHandle();
+        System.out.println("Current Window Name " + driver.getTitle());
+        return blResult;
+    }
+
+    public static boolean MaxWindow(WebDriver driver) {
+        boolean blResult = false;
+        try {
+            driver.manage().window().maximize();
+            blResult = true;
+        } catch (Exception e) {
+            System.out.println("MaxWindow  "+e.getMessage());
+        }
+        return blResult;
     }
 
 

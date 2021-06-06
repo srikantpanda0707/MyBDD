@@ -228,4 +228,20 @@ public class BasicAction extends BasicUI {
         System.out.println("Dismiss is successfull" + ele1);
         return isEnterandverify;
     }
+
+    public boolean ClickWindowPopupOption() {
+        boolean IsClicked = true;
+        Elements.Builberclick(driver, BasicPageOptions, TestDatas.WPM);
+        return IsClicked;
+    }
+
+    public boolean ClickTwiterPopAndVerify() {
+        boolean isclickandVerify = true;
+        Elements.click(BtnFollowOnTwiterSWP);
+        Window.switchtoChildWindow(driver);
+        Window.MaxWindow(driver);
+        Window.GetWindowName(driver);
+        Window.closeWindow(driver);
+        return isclickandVerify;
+    }
 }

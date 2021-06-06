@@ -24,7 +24,7 @@ public class Elements {
 
     public static void click(WebElement element) {
         try {
-            Sync.PageWait(3);
+            Sync.PageWait(3000);
             element.click();
         } catch (Exception e) {
             System.out.println("Click is failed " + e);

@@ -137,5 +137,10 @@ public class BasicUI extends BaseClass {
             .append("<<REPLACE>>")
             .append("')]").toString();
 
+    //Window Popup Model
+
+    @FindBy(how = How.XPATH,using = "//a[@title='Follow @seleniumeasy on Twitter']")
+    public WebElement BtnFollowOnTwiterSWP;
+
 
 }

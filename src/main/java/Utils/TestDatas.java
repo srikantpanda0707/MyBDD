@@ -13,4 +13,5 @@ public class TestDatas {
     public static String Place = "Texas";
     public static String Place1 = "New York";
     public static String JSA = "Javascript Alerts";
+    public static String WPM = "Window Popup Modal";
 }

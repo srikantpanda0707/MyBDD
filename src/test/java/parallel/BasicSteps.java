@@ -119,4 +119,14 @@ public class BasicSteps {
     public void iEnterValueAndDismissAlertAndVerifyTextNotDisplays() {
         assertTrue(ba.EntervalueDismissAlert());
     }
+
+    @Given("I click the Window popup modal option")
+    public void iClickTheWindowPopupModalOption() {
+        assertTrue(ba.ClickWindowPopupOption());
+    }
+
+    @When("I click the twiter pop and verify the window")
+    public void iClickTheTwiterPopAndVerifyTheWindow() {
+        assertTrue(ba.ClickTwiterPopAndVerify());
+    }
 }
