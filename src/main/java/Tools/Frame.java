@@ -1,13 +1,15 @@
 package Tools;
 
+import Actions.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Frame {
+    ObjectGenerator OG = new ObjectGenerator(BaseClass.getDriver());
 
-    public static boolean checkFrame(WebDriver driver) {
+    public  boolean checkFrame(WebDriver driver) {
         boolean isFramePresent = false;
-        Sync.waitForSeconds(3);
+        OG.sync.waitForSeconds(3000);
             isFramePresent = driver.getPageSource().contains("iframe");
             if (isFramePresent) {
 
@@ -16,7 +18,7 @@ public class Frame {
         return isFramePresent;
     }
 
-    public static boolean switchFrameByIndex(int strFrameIndex,WebDriver driver) {
+    public  boolean switchFrameByIndex(int strFrameIndex,WebDriver driver) {
         boolean isFrameSwitched = false;
 
         try {

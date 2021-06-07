@@ -1,6 +1,7 @@
 package parallel;
 
 import Actions.BasicAction;
+import Tools.BaseClass;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,7 +10,7 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertTrue;
 
 public class BasicSteps {
-    BasicAction ba = new BasicAction();
+    private final BasicAction ba = new BasicAction(BaseClass.getDriver());
 
     @Given("I verify selenium easy page opens")
     public void i_verify_selenium_easy_page_opens() {

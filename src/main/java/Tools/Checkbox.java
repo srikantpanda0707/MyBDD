@@ -1,19 +1,21 @@
 package Tools;
 
+import Actions.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Checkbox {
+    ObjectGenerator OG = new ObjectGenerator(BaseClass.getDriver());
 
-    public static boolean check(WebDriver driver, WebElement element) {
+    public  boolean check(WebDriver driver, WebElement element) {
         boolean isChecked = false;
         try {
             isChecked = element.isSelected();
             System.out.println("check bool value" + isChecked);
             if (!isChecked) {
-                Sync.waitForSeconds(3);
+                OG.sync.waitForSeconds(3000);
                 System.out.println("not selected inside if " + isChecked);
-                isChecked = Elements.Jsclick(driver, element);
+                isChecked = OG.ele.Jsclick(driver, element);
                 System.out.println("check inside if isChecked JSClick " + isChecked);
             }
         } catch (Exception Ex) {
@@ -24,21 +26,21 @@ public class Checkbox {
         return isChecked;
     }
 
-    public static boolean unCheck(WebDriver driver, WebElement element) {
+    public  boolean unCheck(WebDriver driver, WebElement element) {
 
         boolean isUnChecked = false;
         boolean isSelected = element.isSelected();
         if (isSelected) {
-            Sync.waitForSeconds(4);
-            isUnChecked = Elements.Jsclick(driver, element);
-            Sync.waitForSeconds(4);
+            OG.sync.waitForSeconds(4000);
+            isUnChecked = OG.ele.Jsclick(driver, element);
+            OG.sync.waitForSeconds(400);
             isUnChecked = true;
         }
         return isUnChecked;
 
     }
 
-    public static boolean isChecked(WebDriver driver, WebElement element) {
+    public  boolean isChecked(WebDriver driver, WebElement element) {
         boolean isSelected = false;
             if (element.isSelected()) {
                 isSelected = true;
@@ -46,10 +48,10 @@ public class Checkbox {
 
         return isSelected;
     }
-    public static boolean isCheckable(WebDriver driver, WebElement element) {
+    public  boolean isCheckable(WebDriver driver, WebElement element) {
 
         boolean blResult = false;
-            element = Sync.ExplicityWait(driver, element, 5);
+            element = OG.sync.ExplicityWait(driver, element, 500);
             if (element.isDisplayed()) {
                 if (element.isEnabled()) {
                     if (!element.isSelected()) {

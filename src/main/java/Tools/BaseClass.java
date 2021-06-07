@@ -1,55 +1,41 @@
 package Tools;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 
 public class BaseClass {
 
-    //    private static BaseClass InstanceDriver = null;
-    public static WebDriver driver;
+    public WebDriver driver;
 
-    //    private static final ConfigDataProvider CDP = new ConfigDataProvider();
-//
-//    public BaseClass(){
-//
-//    }
-//
-//    public  WebDriver Init_Driver(String Browser) {
-//        Properties property = CDP.returnProperty();
-//        switch (Browser) {
-//            case "chrome":
-//                WebDriverManager.chromedriver().setup();
-//                driver = new ChromeDriver();
-//                break;
-//            case "Firefox":
-//                WebDriverManager.firefoxdriver().setup();
-//                driver = new FirefoxDriver();
-//                break;
-//            case "IE":
-//                WebDriverManager.iedriver().setup();
-//                driver = new InternetExplorerDriver();
-//                break;
-//        }
-//        Sync.ImplicityWait(20);
-//        driver.manage().window().maximize();
-//        driver.get(property.getProperty("URL"));
-//
-//        return driver;
-//    }
-//
-//    public static BaseClass getInstanceDriver(){
-//        if (InstanceDriver == null)
-//            InstanceDriver = new BaseClass();
-//            return InstanceDriver;
-//
-//    }
-    public static WebDriver getDriver() {
-        return driver;
+    public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+
+
+    public WebDriver init_driver(String browser) {
+
+        System.out.println("browser value is: " + browser);
+
+        if (browser.equals("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            tlDriver.set(new ChromeDriver());
+        } else if (browser.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            tlDriver.set(new FirefoxDriver());
+        } else if (browser.equals("safari")) {
+            tlDriver.set(new SafariDriver());
+        } else {
+            System.out.println("Please pass the correct browser value: " + browser);
+        }
+        getDriver().manage().window().maximize();
+        return getDriver();
+
     }
 
-    public static void QuitBrowser() {
-        driver.quit();
+    public static synchronized WebDriver getDriver() {
+        return tlDriver.get();
     }
 
 

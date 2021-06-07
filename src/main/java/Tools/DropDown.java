@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DropDown {
 
-    public static void selectByText(WebElement element, String strText) {
+    public  void selectByText(WebElement element, String strText) {
         if (element.isDisplayed()) {
             Select Sel = new Select(element);
             Sel.selectByVisibleText(strText);
@@ -17,7 +17,7 @@ public class DropDown {
         }
     }
 
-    public static void selectByValue(WebElement element, String Str){
+    public  void selectByValue(WebElement element, String Str){
         if (element.isDisplayed()){
             Select Sel = new Select(element);
             Sel.selectByValue(Str);

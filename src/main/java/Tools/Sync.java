@@ -7,11 +7,10 @@ import org.openqa.selenium.support.ui.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class Sync extends BaseClass   {
-//    protected static WebDriver driver;
+public class Sync    {
+public static WebDriver driver;
 
-
-    public static void waitForSeconds(int lngSeconds) {
+    public  void waitForSeconds(int lngSeconds) {
         try {
             Thread.sleep( lngSeconds);
 
@@ -20,7 +19,7 @@ public class Sync extends BaseClass   {
         }
     }
 
-    public static void PageWait(long lngSeconds){
+    public  void PageWait(long lngSeconds){
 
         try {
             driver.manage().timeouts().pageLoadTimeout(lngSeconds, TimeUnit.SECONDS);
@@ -31,7 +30,7 @@ public class Sync extends BaseClass   {
 
     }
 
-    public static void ImplicityWait(long lngSeconds){
+    public  void ImplicityWait(long lngSeconds){
 
         try {
             driver.manage().timeouts().implicitlyWait(lngSeconds, TimeUnit.SECONDS);
@@ -42,7 +41,7 @@ public class Sync extends BaseClass   {
 
     }
 
-    public static WebElement ExplicityWait(WebDriver driver, WebElement element, int timeout){
+    public  WebElement ExplicityWait(WebDriver driver, WebElement element, int timeout){
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeout);

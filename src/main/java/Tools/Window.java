@@ -1,5 +1,6 @@
 package Tools;
 
+import Actions.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -7,8 +8,9 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class Window {
+    ObjectGenerator OG = new ObjectGenerator(BaseClass.getDriver());
 
-    public static boolean focusWindow(WebDriver driver, int strWindowArrayValue) {
+    public  boolean focusWindow(WebDriver driver, int strWindowArrayValue) {
         boolean blResult = false;
         String strWindowHandle = driver.getWindowHandles().toArray()[strWindowArrayValue].toString();
         try {
@@ -21,7 +23,7 @@ public class Window {
         return blResult;
     }
 
-    public static void switchwindowByName(WebDriver driver) {
+    public  void switchwindowByName(WebDriver driver) {
         String currentWinHandle = driver.getWindowHandle();
         System.out.println("currentWinHandle is " + currentWinHandle);
 
@@ -34,14 +36,14 @@ public class Window {
 
     }
 
-    public static void switchToParentWindow(WebDriver driver) {
+    public  void switchToParentWindow(WebDriver driver) {
         String currentWinHandle = driver.getWindowHandle();
         System.out.println("currentWinHandle is " + currentWinHandle);
         driver.switchTo().window(currentWinHandle);
 
     }
 
-    public static void switchtoChildWindow(WebDriver driver){
+    public  void switchtoChildWindow(WebDriver driver){
 
         String parent = driver.getWindowHandle();
         Set<String> allWindows = driver.getWindowHandles();
@@ -50,7 +52,7 @@ public class Window {
         for (String Child:allWindows){
             if (!parent.equalsIgnoreCase(Child)){
                 driver.switchTo().window(Child);
-                Sync.waitForSeconds(3000);
+                OG.sync.waitForSeconds(3000);
                 System.out.println("Swithced to child window");
             }else {
                 System.out.println("Not Swithced to child window");
@@ -58,7 +60,7 @@ public class Window {
         }
     }
 
-    public static void switchtoTab(WebDriver driver, int number ){
+    public  void switchtoTab(WebDriver driver, int number ){
 
         String parent = driver.getWindowHandle();
         Set<String> allWindows = driver.getWindowHandles();
@@ -68,7 +70,7 @@ public class Window {
         for (String Child:tabs){
             if (!parent.equalsIgnoreCase(Child)){
                 driver.switchTo().window(tabs.get(number));
-                Sync.waitForSeconds(3000);
+                OG.sync.waitForSeconds(3000);
                 System.out.println("Swithced to child window");
             }else if(parent.equalsIgnoreCase(Child)) {
                 driver.switchTo().window(parent);
@@ -77,14 +79,14 @@ public class Window {
         }
     }
 
-    public static boolean GetWindowName(WebDriver driver) {
+    public  boolean GetWindowName(WebDriver driver) {
         boolean blResult = false;
         String window = driver.getWindowHandle();
         System.out.println("Current Window Name " + driver.getTitle());
         return blResult;
     }
 
-    public static boolean MaxWindow(WebDriver driver) {
+    public  boolean MaxWindow(WebDriver driver) {
         boolean blResult = false;
         try {
             driver.manage().window().maximize();
@@ -96,7 +98,7 @@ public class Window {
     }
 
 
-    public static boolean closeWindow(WebDriver driver) {
+    public  boolean closeWindow(WebDriver driver) {
         boolean blResult = false;
         try {
             driver.close();
@@ -107,7 +109,7 @@ public class Window {
         return blResult;
     }
 
-    public static boolean refreshWindow(WebDriver driver) {
+    public  boolean refreshWindow(WebDriver driver) {
         boolean blResult = false;
         try {
             driver.navigate().refresh();
@@ -118,7 +120,7 @@ public class Window {
         return blResult;
     }
 
-    public static boolean NavBackWindow(WebDriver driver) {
+    public  boolean NavBackWindow(WebDriver driver) {
         boolean blResult = false;
         try {
             driver.navigate().back();
@@ -129,7 +131,7 @@ public class Window {
         return blResult;
     }
 
-    public static boolean NavForWindow(WebDriver driver) {
+    public  boolean NavForWindow(WebDriver driver) {
         boolean blResult = false;
         try {
             driver.navigate().forward();

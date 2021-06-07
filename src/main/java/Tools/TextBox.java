@@ -1,20 +1,22 @@
 package Tools;
 
 
+import Actions.ObjectGenerator;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class TextBox   {
+    ObjectGenerator OG = new ObjectGenerator(BaseClass.getDriver());
 
-    public static boolean enterValue(WebDriver driver, WebElement element, String strValue) {
+    public  boolean enterValue(WebDriver driver, WebElement element, String strValue) {
         boolean isValueEntered = false;
         try {
-            Sync.waitForSeconds(3);
+            OG.sync.waitForSeconds(3000);
             if (element.isDisplayed()) {
                 String NewTxt = strValue;
-                String strOldText= TextBox.getText(driver,element);
+                String strOldText= OG.textBox.getText(driver,element);
                 if((strOldText == null) && (strOldText.isEmpty())){
                     element.sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
                     element.sendKeys(strValue);
@@ -37,7 +39,7 @@ public class TextBox   {
         return isValueEntered;
     }
 
-    public static boolean jsEnterValue(WebDriver driver,WebElement element, String strValue) {
+    public  boolean jsEnterValue(WebDriver driver,WebElement element, String strValue) {
         boolean isEntered = false;
         try {
             JavascriptExecutor executor = (JavascriptExecutor) driver;
@@ -56,7 +58,7 @@ public class TextBox   {
         return isEntered;
     }
 
-    public static boolean verifyElement(WebElement element) {
+    public  boolean verifyElement(WebElement element) {
         boolean blResult = false;
         if (element.isDisplayed()) {
             blResult = true;
@@ -68,10 +70,10 @@ public class TextBox   {
     }
 
 
-    public static String getText(WebDriver driver, WebElement element) {
+    public  String getText(WebDriver driver, WebElement element) {
         String strText ="";
         try {
-            Sync.ExplicityWait(driver, element, 5);
+            OG.sync.ExplicityWait(driver, element, 5);
             strText = element.getText();
         } catch (Exception e) {
             System.out.println("Text not found");
@@ -79,7 +81,7 @@ public class TextBox   {
         return strText;
     }
 
-    public static void CompareText(WebDriver driver, WebElement element, String Str){
+    public  void CompareText(WebDriver driver, WebElement element, String Str){
 
         if (element.isDisplayed()){
             String ST = getText(driver, element);
@@ -89,18 +91,18 @@ public class TextBox   {
         }
     }
 
-    public static void clearValue(WebDriver driver, WebElement element) {
+    public  void clearValue(WebDriver driver, WebElement element) {
 
         if (element.isDisplayed()) {
-            element = Sync.ExplicityWait(driver, element, 5);
+            element = OG.sync.ExplicityWait(driver, element, 5);
             element.clear();
         }
     }
 
-    public static boolean focus(WebDriver driver, WebElement element) {
+    public  boolean focus(WebDriver driver, WebElement element) {
         boolean isFocused=false;
         try{
-            element = Sync.ExplicityWait(driver, element, 5);
+            element = OG.sync.ExplicityWait(driver, element, 5);
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].focus();", element);
             isFocused = true;
