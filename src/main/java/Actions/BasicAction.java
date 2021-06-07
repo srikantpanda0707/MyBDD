@@ -1,18 +1,17 @@
 package Actions;
 
 import OR.BasicUI;
-import Tools.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class BasicAction extends BasicUI {
-    private final WebDriver driver;
-    public BasicAction(WebDriver driver) {
-        this.driver = driver;
-    }
 
-    ObjectGenerator OG = new ObjectGenerator(BaseClass.getDriver());
+    ObjectGenerator OG = new ObjectGenerator();
+
+    public BasicAction(WebDriver driver) {
+        super(driver);
+    }
 
 
     public boolean VerifySeleniumEasyDisplays() {

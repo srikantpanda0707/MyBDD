@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.*;
 import java.util.concurrent.TimeUnit;
 
 public class Sync    {
-public static WebDriver driver;
 
     public  void waitForSeconds(int lngSeconds) {
         try {
@@ -19,7 +18,7 @@ public static WebDriver driver;
         }
     }
 
-    public  void PageWait(long lngSeconds){
+    public  void PageWait(WebDriver driver,long lngSeconds){
 
         try {
             driver.manage().timeouts().pageLoadTimeout(lngSeconds, TimeUnit.SECONDS);
@@ -30,7 +29,7 @@ public static WebDriver driver;
 
     }
 
-    public  void ImplicityWait(long lngSeconds){
+    public  void ImplicityWait(WebDriver driver,long lngSeconds){
 
         try {
             driver.manage().timeouts().implicitlyWait(lngSeconds, TimeUnit.SECONDS);

@@ -5,10 +5,9 @@ import Utils.TestDatas;
 import org.openqa.selenium.WebDriver;
 
 public class ObjectGenerator {
-    private final WebDriver driver;
-    public ObjectGenerator(WebDriver driver){
-        this.driver = driver;
-    }
+    protected WebDriver driver;
+
+
     public Alert alert;
     public DropDown DD;
     public Elements ele;

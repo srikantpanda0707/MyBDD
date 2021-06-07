@@ -10,7 +10,7 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertTrue;
 
 public class BasicSteps {
-    private final BasicAction ba = new BasicAction(BaseClass.getDriver());
+    protected BasicAction ba = new BasicAction(BaseClass.getDriver());
 
     @Given("I verify selenium easy page opens")
     public void i_verify_selenium_easy_page_opens() {

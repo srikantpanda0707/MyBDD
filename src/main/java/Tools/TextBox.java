@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class TextBox   {
-    ObjectGenerator OG = new ObjectGenerator(BaseClass.getDriver());
+    ObjectGenerator OG = new ObjectGenerator();
 
     public  boolean enterValue(WebDriver driver, WebElement element, String strValue) {
         boolean isValueEntered = false;

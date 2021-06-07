@@ -4,7 +4,7 @@ import Actions.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 
 public class Alert {
-    ObjectGenerator OG = new ObjectGenerator(BaseClass.getDriver());
+    ObjectGenerator OG = new ObjectGenerator();
 
     public  boolean switchToAlert(WebDriver driver) {
         boolean isAlertSwitched = false;

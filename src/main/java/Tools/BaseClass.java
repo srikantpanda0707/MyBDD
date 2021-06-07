@@ -9,7 +9,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class BaseClass {
 
-    public WebDriver driver;
+//    public WebDriver driver;
 
     public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
@@ -18,13 +18,13 @@ public class BaseClass {
 
         System.out.println("browser value is: " + browser);
 
-        if (browser.equals("chrome")) {
+        if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             tlDriver.set(new ChromeDriver());
-        } else if (browser.equals("firefox")) {
+        } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             tlDriver.set(new FirefoxDriver());
-        } else if (browser.equals("safari")) {
+        } else if (browser.equalsIgnoreCase("safari")) {
             tlDriver.set(new SafariDriver());
         } else {
             System.out.println("Please pass the correct browser value: " + browser);
@@ -34,7 +34,7 @@ public class BaseClass {
 
     }
 
-    public static synchronized WebDriver getDriver() {
+    public static  WebDriver getDriver() {
         return tlDriver.get();
     }
 

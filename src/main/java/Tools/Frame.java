@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Frame {
-    ObjectGenerator OG = new ObjectGenerator(BaseClass.getDriver());
+    ObjectGenerator OG = new ObjectGenerator();
 
     public  boolean checkFrame(WebDriver driver) {
         boolean isFramePresent = false;
@@ -30,7 +30,7 @@ public class Frame {
         return isFrameSwitched;
     }
 
-    public static boolean switchFrameByName(String strFrameName,WebDriver driver) {
+    public  boolean switchFrameByName(String strFrameName,WebDriver driver) {
         boolean isFrameSwitched = false;
         try {
             driver.switchTo().frame(strFrameName);
@@ -41,7 +41,7 @@ public class Frame {
         return isFrameSwitched;
     }
 
-    public static boolean switchFrameById(int strFrameId,WebDriver driver) {
+    public  boolean switchFrameById(int strFrameId,WebDriver driver) {
         boolean isFrameSwitched = false;
         try {
             driver.switchTo().frame(strFrameId);
@@ -52,7 +52,7 @@ public class Frame {
         return isFrameSwitched;
     }
 
-    public static boolean switchToFrameByElement(WebDriver driver, WebElement element)
+    public  boolean switchToFrameByElement(WebDriver driver, WebElement element)
     {
         boolean isSwitched=false;
         try {
@@ -64,7 +64,7 @@ public class Frame {
         return isSwitched;
     }
 
-    public static boolean switchFrameByWebElement(WebElement frameWebElement,WebDriver driver) {
+    public  boolean switchFrameByWebElement(WebElement frameWebElement,WebDriver driver) {
         boolean isFrameSwitched = false;
         try {
             driver.switchTo().frame(frameWebElement);
@@ -75,7 +75,7 @@ public class Frame {
         return isFrameSwitched;
     }
 
-    public static boolean switchToParentFrame(WebDriver driver) {
+    public  boolean switchToParentFrame(WebDriver driver) {
         boolean isFrameSwitched = false;
         try {
             driver.switchTo().parentFrame();
@@ -86,7 +86,7 @@ public class Frame {
         return isFrameSwitched;
     }
 
-    public static boolean switchFrameToDefaultContent(WebDriver driver) {
+    public  boolean switchFrameToDefaultContent(WebDriver driver) {
         boolean isFrameSwitched = false;
         try {
             driver.switchTo().defaultContent();

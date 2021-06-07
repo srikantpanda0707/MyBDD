@@ -7,10 +7,12 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasicUI  {
-    private WebDriver driver;
+    protected WebDriver driver;
 
-    public BasicUI() {
+    public BasicUI(WebDriver driver)
+    {
         PageFactory.initElements(driver, this);
+        this.driver=driver;
     }
 
     @FindBy(how = How.XPATH,using = "//a[contains(text(),'Selenium Easy')]")
