@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class TextBox   {
-    ObjectGenerator OG = new ObjectGenerator();
+    ObjectGenerator OG = BaseClass.getObjectGenerator();
 
     public  boolean enterValue(WebDriver driver, WebElement element, String strValue) {
         boolean isValueEntered = false;
@@ -21,7 +21,7 @@ public class TextBox   {
                     element.sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
                     element.sendKeys(strValue);
                 }
-                else if (NewTxt == strOldText){
+                else if (NewTxt.equals(strOldText)){
                     System.out.println(NewTxt +" Already Value is entered");
                 }
                 else{
@@ -30,7 +30,7 @@ public class TextBox   {
                 }
                 isValueEntered = true;
             } else {
-                isValueEntered = false;
+                System.out.println("Element not found to enter value");
             }
         } catch (Exception e) {
 
@@ -50,7 +50,7 @@ public class TextBox   {
                 executor.executeScript("arguments[0].value='+strValue+;", element);
                 isEntered = true;
             } else {
-                isEntered = false;
+                System.out.println("Element not found to enter value");
             }
         } catch (Exception e) {
             System.out.println("Element not found" + e);
@@ -58,15 +58,13 @@ public class TextBox   {
         return isEntered;
     }
 
-    public  boolean verifyElement(WebElement element) {
-        boolean blResult = false;
+    public void verifyElement(WebElement element) {
         if (element.isDisplayed()) {
-            blResult = true;
+            System.out.println("Element found");
         } else {
             System.out.println("Element not found");
-            blResult = false;
+
         }
-        return blResult;
     }
 
 

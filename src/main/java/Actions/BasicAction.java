@@ -6,11 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class BasicAction extends BasicUI {
+    private final WebDriver driver;
 
-    ObjectGenerator OG = new ObjectGenerator();
+    ObjectGenerator OG = getObjectGenerator();
 
-    public BasicAction(WebDriver driver) {
-        super(driver);
+
+    public BasicAction() {
+        super();
+        this.driver = getDriver();
+        OG.initPage();
     }
 
 
@@ -239,6 +243,17 @@ public class BasicAction extends BasicUI {
     public boolean ClickTwiterPopAndVerify() {
         boolean isclickandVerify = true;
         OG.ele.click(BtnFollowOnTwiterSWP);
+        OG.window.switchtoChildWindow(driver);
+        OG.window.MaxWindow(driver);
+        OG.window.GetWindowName(driver);
+        OG.window.closeWindow(driver);
+        return isclickandVerify;
+    }
+
+    public boolean ClickFBPopAndVerify() {
+        boolean isclickandVerify = true;
+        OG.window.switchtoTab(driver,0);
+        OG.ele.click(BtnFollowOnFBSWP);
         OG.window.switchtoChildWindow(driver);
         OG.window.MaxWindow(driver);
         OG.window.GetWindowName(driver);

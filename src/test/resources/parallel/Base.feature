@@ -48,3 +48,5 @@ Feature: Base
   Scenario: User able to handle window pop
     Given I click the Window popup modal option
     When I click the twiter pop and verify the window
+    Then I click the fb pop up and verify
+    And I verify selenium easy page opens

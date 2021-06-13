@@ -2,10 +2,8 @@ package Actions;
 
 import Tools.*;
 import Utils.TestDatas;
-import org.openqa.selenium.WebDriver;
 
-public class ObjectGenerator {
-    protected WebDriver driver;
+public class ObjectGenerator extends  BaseClass {
 
 
     public Alert alert;
@@ -20,14 +18,14 @@ public class ObjectGenerator {
 
 
     public void initPage(){
-        Alert alert = new Alert();
-        DropDown DD = new DropDown();
-        Elements ele = new Elements();
-        Frame frame = new Frame();
-        Sync sync = new Sync();
-        TextBox textBox = new TextBox();
-        Window window = new Window();
-        TestDatas testDatas = new TestDatas();
+         alert = new Alert();
+         DD = new DropDown();
+        ele = new Elements();
+         frame = new Frame();
+         sync = new Sync();
+        textBox = new TextBox();
+         window = new Window();
+         testDatas = new TestDatas();
     }
 
 }

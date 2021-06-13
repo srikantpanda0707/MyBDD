@@ -1,22 +1,22 @@
 package OR;
 
+import Tools.BaseClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasicUI  {
-    protected WebDriver driver;
+public class BasicUI extends BaseClass {
 
-    public BasicUI(WebDriver driver)
+    public BasicUI()
     {
-        PageFactory.initElements(driver, this);
-        this.driver=driver;
+        PageFactory.initElements(getDriver(), this);
     }
 
     @FindBy(how = How.XPATH,using = "//a[contains(text(),'Selenium Easy')]")
     public WebElement LblSeleniumEasy;
+
 
     @FindBy(how = How.XPATH,using = "//a[@class='at4-close']")
     public WebElement LearnSeleniumPopup;
@@ -145,5 +145,7 @@ public class BasicUI  {
     @FindBy(how = How.XPATH,using = "//a[@title='Follow @seleniumeasy on Twitter']")
     public WebElement BtnFollowOnTwiterSWP;
 
+    @FindBy(how = How.XPATH,using = "//a[@title='Follow @seleniumeasy on Facebook']")
+    public WebElement BtnFollowOnFBSWP;
 
 }

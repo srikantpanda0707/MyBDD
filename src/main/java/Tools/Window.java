@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class Window {
-    ObjectGenerator OG = new ObjectGenerator();
+    ObjectGenerator OG = BaseClass.getObjectGenerator();
 
     public  boolean focusWindow(WebDriver driver, int strWindowArrayValue) {
         boolean blResult = false;

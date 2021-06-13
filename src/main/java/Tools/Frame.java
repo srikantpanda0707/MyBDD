@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Frame {
-    ObjectGenerator OG = new ObjectGenerator();
+    ObjectGenerator OG = BaseClass.getObjectGenerator();
 
     public  boolean checkFrame(WebDriver driver) {
         boolean isFramePresent = false;
