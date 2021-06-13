@@ -50,3 +50,17 @@ Feature: Base
     When I click the twiter pop and verify the window
     Then I click the fb pop up and verify
     And I verify selenium easy page opens
+
+  @TC07
+  Scenario: User able to handle bootstrap alert
+    Given I click bootstrap alert option
+    When I click the bootstrap alert button and verify the warning
+    Then I click boostrap normal alert message and verify
+    And I verify selenium easy page opens
+
+  @TC08
+  Scenario: User able to handle boortrap Models
+    Given I click boostrap models option
+    When I click bootstrap single model and verify
+    Then I click bootstrap multi model and verify
+    And I verify selenium easy page opens

@@ -14,4 +14,7 @@ public class TestDatas {
     public  String Place1 = "New York";
     public  String JSA = "Javascript Alerts";
     public  String WPM = "Window Popup Modal";
+    public  String BAP = "Bootstrap Alerts";
+    public  String BPM = "Bootstrap Modals";
+
 }

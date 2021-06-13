@@ -260,4 +260,81 @@ public class BasicAction extends BasicUI {
         OG.window.closeWindow(driver);
         return isclickandVerify;
     }
+
+    public boolean ClickBootstrapAlertOption() {
+        boolean IsClicked = true;
+        OG.ele.Builberclick(driver, BasicPageOptions, OG.testDatas.BAP);
+        return IsClicked;
+    }
+
+    public boolean ClickBoostrapAlertBtnAndVerify() {
+        boolean isclickandVerify = true;
+        OG.ele.click(BtnBootstrapSuccessBAM);
+        OG.textBox.verifyElement(LblBootstrapSuccessBAM);
+        OG.ele.click(BtnBootstrapWarningBAM);
+        OG.textBox.verifyElement(LblBootstrapWarningBAM);
+        OG.ele.click(BtnBootstrapDangerBAM);
+        OG.textBox.verifyElement(LblBootstrapDangerBAM);
+        OG.ele.click(BtnBootstrapInfoBAM);
+        OG.textBox.verifyElement(LblBootstrapInfoBAM);
+        OG.sync.waitForSeconds(6000);
+        return isclickandVerify;
+    }
+
+    public boolean ClickBoostrapNormalAlertBtnAndVerify() {
+        boolean isclickandVerify = true;
+        OG.ele.click(BtnBootstrapNormalSuccessBAM);
+        OG.textBox.verifyElement(LblBootstrapNormalSuccessBAM);
+        OG.ele.click(BtnBootstrapNormalWarningBAM);
+        OG.textBox.verifyElement(LblBootstrapNormalWarningBAM);
+        OG.ele.click(BtnBootstrapNormalDangerBAM);
+        OG.textBox.verifyElement(LblBootstrapNormalDangerBAM);
+        OG.ele.click(BtnBootstrapNormalInfoBAM);
+        OG.textBox.verifyElement(LblBootstrapNormalInfoBAM);
+        return isclickandVerify;
+    }
+
+    public boolean ClickBootstrapModelsOption() {
+        boolean IsClicked = true;
+        OG.ele.Builberclick(driver, BasicPageOptions, OG.testDatas.BPM);
+        return IsClicked;
+    }
+
+    public boolean ClickBoostrapModelBtnAndVerify() {
+        boolean isclickandVerify = true;
+        OG.sync.waitForSeconds(2000);
+        OG.ele.click(BtnLaunchModalSME);
+        OG.textBox.verifyElement(LblModalSME);
+        OG.ele.click(BtnCloseModalSME);
+        OG.sync.waitForSeconds(2000);
+        OG.ele.click(BtnLaunchModalSME);
+        OG.textBox.verifyElement(LblModalSME);
+        OG.ele.click(BtnSaveModalSME);
+        OG.sync.waitForSeconds(2000);
+        return isclickandVerify;
+    }
+
+    public boolean ClickBoostrapMultiModelBtnAndVerify() {
+        boolean isclickandVerify = true;
+        OG.ele.click(BtnLaunchModalMME);
+        OG.textBox.verifyElement(LblFirstModalSME);
+        OG.sync.waitForSeconds(2000);
+        OG.ele.click(BtnFirstLaunchModalMME);
+        OG.textBox.verifyElement(LblModal2SME);
+        OG.ele.click(BtnCloseModal2SME);
+        OG.sync.waitForSeconds(2000);
+        OG.ele.click(BtnFirstLaunchModalMME);
+        OG.textBox.verifyElement(LblModal2SME);
+        OG.ele.click(BtnSaveModal2SME);
+        OG.sync.waitForSeconds(2000);
+        OG.ele.click(BtnLaunchModalMME);
+        OG.textBox.verifyElement(LblFirstModalSME);
+        OG.ele.click(BtnCloseFirstModalSME);
+        OG.sync.waitForSeconds(2000);
+        OG.ele.click(BtnLaunchModalMME);
+        OG.textBox.verifyElement(LblFirstModalSME);
+        OG.ele.click(BtnSaveFirstModalSME);
+        OG.sync.waitForSeconds(2000);
+        return isclickandVerify;
+    }
 }

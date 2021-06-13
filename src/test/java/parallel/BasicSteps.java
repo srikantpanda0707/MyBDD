@@ -134,4 +134,34 @@ public class BasicSteps {
     public void iClickTheFbPopUpAndVerify() {
         assertTrue(ba.ClickFBPopAndVerify());
     }
+
+    @Given("I click bootstrap alert option")
+    public void iClickBootstrapAlertOption() {
+        assertTrue(ba.ClickBootstrapAlertOption());
+    }
+
+    @When("I click the bootstrap alert button and verify the warning")
+    public void iClickTheBootstrapAlertButtonAndVerifyTheWarning() {
+        assertTrue(ba.ClickBoostrapAlertBtnAndVerify());
+    }
+
+    @Then("I click boostrap normal alert message and verify")
+    public void iClickBoostrapNormalAlertMessageAndVerify() {
+        assertTrue(ba.ClickBoostrapNormalAlertBtnAndVerify());
+    }
+
+    @Given("I click boostrap models option")
+    public void iClickBoostrapModelsOption() {
+        assertTrue(ba.ClickBootstrapModelsOption());
+    }
+
+    @When("I click bootstrap single model and verify")
+    public void iClickBootstrapSingleModelAndVerify() {
+        assertTrue(ba.ClickBoostrapModelBtnAndVerify());
+    }
+
+    @Then("I click bootstrap multi model and verify")
+    public void iClickBootstrapMultiModelAndVerify() {
+        assertTrue(ba.ClickBoostrapMultiModelBtnAndVerify());
+    }
 }

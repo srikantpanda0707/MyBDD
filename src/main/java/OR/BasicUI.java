@@ -1,7 +1,6 @@
 package OR;
 
 import Tools.BaseClass;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -147,5 +146,93 @@ public class BasicUI extends BaseClass {
 
     @FindBy(how = How.XPATH,using = "//a[@title='Follow @seleniumeasy on Facebook']")
     public WebElement BtnFollowOnFBSWP;
+
+    //Bootstrap alert Option
+
+    @FindBy(how = How.XPATH,using = "//button[@id='autoclosable-btn-success']")
+    public WebElement BtnBootstrapSuccessBAM;
+
+    @FindBy(how = How.XPATH,using = "//div[contains(text(),'autocloseable success  message. I will hide in 5 seconds.')]")
+    public WebElement LblBootstrapSuccessBAM;
+
+    @FindBy(how = How.XPATH,using = "//button[@id='autoclosable-btn-warning']")
+    public WebElement BtnBootstrapWarningBAM;
+
+    @FindBy(how = How.XPATH,using = "//div[contains(text(),'autocloseable warning message. I will hide in 3 seconds.')]")
+    public WebElement LblBootstrapWarningBAM;
+
+    @FindBy(how = How.XPATH,using = "//button[@id='autoclosable-btn-danger']")
+    public WebElement BtnBootstrapDangerBAM;
+
+    @FindBy(how = How.XPATH,using = "//div[contains(text(),'autocloseable danger message. I will hide in 5 seconds.')]")
+    public WebElement LblBootstrapDangerBAM;
+
+    @FindBy(how = How.XPATH,using = "//button[@id='autoclosable-btn-info']")
+    public WebElement BtnBootstrapInfoBAM;
+
+    @FindBy(how = How.XPATH,using = "//div[contains(text(),'autocloseable info message. I will hide in 6 seconds.')]")
+    public WebElement LblBootstrapInfoBAM;
+
+    @FindBy(how = How.XPATH,using = "//button[@id='normal-btn-success']")
+    public WebElement BtnBootstrapNormalSuccessBAM;
+
+    @FindBy(how = How.XPATH,using = "//div[@class='alert alert-success alert-normal-success']")
+    public WebElement LblBootstrapNormalSuccessBAM;
+
+    @FindBy(how = How.XPATH,using = "//button[@id='normal-btn-warning']")
+    public WebElement BtnBootstrapNormalWarningBAM;
+
+    @FindBy(how = How.XPATH,using = "//div[@class='alert alert-warning alert-normal-warning']")
+    public WebElement LblBootstrapNormalWarningBAM;
+
+    @FindBy(how = How.XPATH,using = "//button[@id='normal-btn-danger']")
+    public WebElement BtnBootstrapNormalDangerBAM;
+
+    @FindBy(how = How.XPATH,using = "//div[@class='alert alert-danger alert-normal-danger']")
+    public WebElement LblBootstrapNormalDangerBAM;
+
+    @FindBy(how = How.XPATH,using = "//button[@id='normal-btn-info']")
+    public WebElement BtnBootstrapNormalInfoBAM;
+
+    @FindBy(how = How.XPATH,using = "//div[@class='alert alert-info alert-normal-info']")
+    public WebElement LblBootstrapNormalInfoBAM;
+
+    //Bootstrap popup
+
+    @FindBy(how = How.XPATH,using = "//div[contains(text(),'Single Modal Example')]/following::div[@class='panel-body'][1]//a[contains(.,'Launch modal')]")
+    public WebElement BtnLaunchModalSME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'Modal Title')]")
+    public WebElement LblModalSME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'Modal Title')]/following::a[contains(.,'Close')][1]")
+    public WebElement BtnCloseModalSME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'Modal Title')]/following::a[contains(.,'Save changes')][1]")
+    public WebElement BtnSaveModalSME;
+
+    @FindBy(how = How.XPATH,using = "//div[contains(text(),'Multiple Modal Example')]/following::div[@class='panel-body']/a[contains(.,'Launch modal')]")
+    public WebElement BtnLaunchModalMME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'First Modal')]")
+    public WebElement LblFirstModalSME;
+
+    @FindBy(how = How.XPATH,using = "//p[contains(.,'Clicking on Save Changes button will close the modal and refresh the page')]/following::a[contains(.,'Launch modal')]")
+    public WebElement BtnFirstLaunchModalMME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'First Modal')]/following::a[contains(.,'Close')][1]")
+    public WebElement BtnCloseFirstModalSME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'First Modal')]/following::a[contains(.,'Save changes')][1]")
+    public WebElement BtnSaveFirstModalSME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'Modal 2')]")
+    public WebElement LblModal2SME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'Modal 2')]/following::a[contains(.,'Close')][1]")
+    public WebElement BtnCloseModal2SME;
+
+    @FindBy(how = How.XPATH,using = "//h4[@class='modal-title'][contains(.,'Modal 2')]/following::a[contains(.,'Save changes')][1]")
+    public WebElement BtnSaveModal2SME;
 
 }
