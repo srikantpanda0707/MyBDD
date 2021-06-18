@@ -44,7 +44,7 @@ Feature: Base
     Then I enter value and accept alert and verify the text displays
     And I enter value and dismiss alert and verify text not displays
 
-  @TC06
+  @TC06 @Skip
   Scenario: User able to handle window pop
     Given I click the Window popup modal option
     When I click the twiter pop and verify the window

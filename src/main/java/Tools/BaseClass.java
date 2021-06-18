@@ -1,6 +1,7 @@
 package Tools;
 
 import Actions.ObjectGenerator;
+import Utils.ConfigDataProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,12 +15,14 @@ public class BaseClass {
 
     public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
     public static ThreadLocal<ObjectGenerator> OBJ = new ThreadLocal<>();
+    public static ThreadLocal<ConfigDataProvider> CDP = new ThreadLocal<>();
 
 
     public WebDriver init_driver(String browser) {
 
         System.out.println("browser value is: " + browser);
         OBJ.set(new ObjectGenerator());
+        CDP.set(new ConfigDataProvider());
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             tlDriver.set(new ChromeDriver());
@@ -44,5 +47,8 @@ public class BaseClass {
         return OBJ.get();
     }
 
+    public static synchronized  ConfigDataProvider getConfigDataProvider(){
+        return CDP.get();
+    }
 
 }

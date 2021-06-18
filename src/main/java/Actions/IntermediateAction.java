@@ -3,21 +3,26 @@ package Actions;
 
 
 import OR.IntermediateUI;
+import Utils.ConfigDataProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Properties;
 
 
 public class IntermediateAction extends IntermediateUI {
     private final WebDriver driver;
+    Properties prop;
     ObjectGenerator OG = getObjectGenerator();
+    ConfigDataProvider CDP = getConfigDataProvider();
 
     public IntermediateAction() {
         super();
         this.driver = getDriver();
         OG.initPage();
+        prop = CDP.DataProvider();
     }
 
     public boolean SelectInputFormOption() {
@@ -75,8 +80,8 @@ public class IntermediateAction extends IntermediateUI {
 
     public boolean EnterValdTextAndVerify() {
         boolean isEnterAndVerify = true;
-        OG.textBox.enterValue(driver, TxtBoxNameAFS, OG.testDatas.MessageSimple);
-        OG.textBox.enterValue(driver, TxtBoxCommentAFS, OG.testDatas.MessageSimple);
+        OG.textBox.enterValue(driver, TxtBoxNameAFS, prop.getProperty("MessageSimple"));
+        OG.textBox.enterValue(driver, TxtBoxCommentAFS, prop.getProperty("MessageSimple"));
         OG.ele.click(BtnSubmitAFS);
         return isEnterAndVerify;
     }

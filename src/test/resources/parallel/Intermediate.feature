@@ -17,6 +17,6 @@ Feature: Intermediate
     @TC10
     Scenario: User able to send AJAX loading message
       Given I click the Ajax form submit from input drop down
-      When I Verify the maditory field with empty text
+      When I Verify the mandatory field with empty text
       Then I enter valid input in ajax form and send request
       And I verify the ajax successful message

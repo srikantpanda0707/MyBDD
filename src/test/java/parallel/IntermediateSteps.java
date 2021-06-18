@@ -32,8 +32,8 @@ public class IntermediateSteps {
         assertTrue(IA.SelectAjaxFormOption());
     }
 
-    @When("I Verify the maditory field with empty text")
-    public void iVerifyTheMaditoryFieldWithEmptyText() {
+    @When("I Verify the mandatory field with empty text")
+    public void iVerifyTheMandatoryFieldWithEmptyText() {
         assertTrue(IA.VerifyMaditoryFieldByEmptyText());
     }
 

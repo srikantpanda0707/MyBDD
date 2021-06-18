@@ -76,4 +76,21 @@ public class Elements {
         }
     }
 
+    public  boolean scrollToElement(WebDriver driver,WebElement element) {
+        boolean isScrollToView = false;
+        try {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].scrollIntoView();", element);
+            isScrollToView = true;
+
+        } catch (Exception e) {
+            System.out.println("Element not found to scroll " + e);
+        }
+        System.out.println("scrollToElement bool value is"+isScrollToView);
+        return isScrollToView;
+    }
+
+
+
+
 }
