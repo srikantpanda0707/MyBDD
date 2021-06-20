@@ -6,20 +6,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.logging.Logger;
+
 public class Elements {
+
+    Logger log = Logger.getLogger(Elements.class.getName());
 
     public  void click(WebElement element) {
         try {
             element.click();
         } catch (Exception e) {
-            System.out.println("Click is failed " + e);
+            log.info("Click is failed " + e);
         }
     }
 
     public  void Builberclick(WebDriver driver, String element, String strValue) {
 
         WebElement ele = driver.findElement(By.xpath(element.replace("<<REPLACE>>", strValue)));
-        ele.click();
+        if (ele.isDisplayed()) {
+            ele.click();
+        } else {
+            log.info("Builder Click is failed ");
+        }
     }
 
 
@@ -30,7 +38,7 @@ public class Elements {
             executor.executeScript("arguments[0].click();", element);
             isClicked = true;
         } catch (Exception e) {
-            System.out.println("JsClick is failed " + e);
+            log.info("JsClick is failed " + e);
         }
         return isClicked;
     }
@@ -43,7 +51,7 @@ public class Elements {
             actions.build().perform();
 
         } catch (Exception e) {
-            System.out.println("MouseClick is failed " + e);
+            log.info("MouseClick is failed " + e);
         }
 
     }
@@ -53,27 +61,24 @@ public class Elements {
             Actions actions = new Actions(driver);
             actions.moveToElement(element).build().perform();
         } catch (Exception e) {
-            System.out.println("MouseClick is failed " + e);
+            log.info("Mouseover is failed " + e);
         }
     }
 
     public  void dragAndDropXpath(WebElement dragElement, WebElement dropElement, WebDriver driver) {
-        try {
+
             try {
                 if (dragElement.isDisplayed() && dropElement.isDisplayed()) {
                     Actions builder = new Actions(driver);
                     builder.dragAndDrop(dragElement, dropElement).build().perform();
 
                 } else {
-                    System.out.println("Element not found to drag");
+                    log.info("Element not found to drag");
                 }
             } catch (Exception e) {
-                System.out.println("Drag n Drop If Failed " + e);
+                log.info("Drag n Drop If Failed " + e);
             }
 
-        } catch (Exception e) {
-            System.out.println("Drag n Drop is failed " + e);
-        }
     }
 
     public  boolean scrollToElement(WebDriver driver,WebElement element) {
@@ -84,7 +89,7 @@ public class Elements {
             isScrollToView = true;
 
         } catch (Exception e) {
-            System.out.println("Element not found to scroll " + e);
+            log.info("Element not found to scroll  " + e);
         }
         System.out.println("scrollToElement bool value is"+isScrollToView);
         return isScrollToView;

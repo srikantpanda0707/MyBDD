@@ -1,13 +1,14 @@
 package Tools;
 
-import Actions.ObjectGenerator;
+import Utils.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.logging.Logger;
 
 public class Window {
+    Logger log = Logger.getLogger(Window.class.getName());
     ObjectGenerator OG = BaseClass.getObjectGenerator();
 
     public  boolean focusWindow(WebDriver driver, int strWindowArrayValue) {
@@ -18,7 +19,7 @@ public class Window {
             driver.manage().window().maximize();
             blResult = true;
         } catch (Exception e) {
-            System.out.println("Window Not Focused  "+e.getMessage());
+            log.info("Window Not Focused  "+e.getMessage());
         }
         return blResult;
     }
@@ -29,19 +30,13 @@ public class Window {
 
             if (currentWinHandle != "") {
                 driver.switchTo().window(currentWinHandle);
-                System.out.println("Swithced to current window");
+                log.info("Window Not Focused");
             } else {
-                System.out.println("Not Swithced to current window");
+                log.info("WNot Swithced to current window ");
             }
 
     }
 
-    public  void switchToParentWindow(WebDriver driver) {
-        String currentWinHandle = driver.getWindowHandle();
-        System.out.println("currentWinHandle is " + currentWinHandle);
-        driver.switchTo().window(currentWinHandle);
-
-    }
 
     public  void switchtoChildWindow(WebDriver driver){
 
@@ -53,9 +48,9 @@ public class Window {
             if (!parent.equalsIgnoreCase(Child)){
                 driver.switchTo().window(Child);
                 OG.sync.waitForSeconds(3000);
-                System.out.println("Swithced to child window");
+                log.info("Swithced to child window");
             }else {
-                System.out.println("Not Swithced to child window");
+                log.info("Not swithced to child window");
             }
         }
     }
@@ -71,10 +66,10 @@ public class Window {
             if (!parent.equalsIgnoreCase(Child)){
                 driver.switchTo().window(tabs.get(number));
                 OG.sync.waitForSeconds(3000);
-                System.out.println("Swithced to child window");
+                log.info("Swithced to child window");
             }else if(parent.equalsIgnoreCase(Child)) {
                 driver.switchTo().window(parent);
-                System.out.println("Not Swithced to child window" + driver.getTitle());
+                log.info("Not Swithced to child window" + driver.getTitle());
             }
         }
     }
@@ -92,7 +87,7 @@ public class Window {
             driver.manage().window().maximize();
             blResult = true;
         } catch (Exception e) {
-            System.out.println("MaxWindow  "+e.getMessage());
+            log.info("MaxWindow  "+e.getMessage());
         }
         return blResult;
     }

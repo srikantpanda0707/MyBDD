@@ -1,7 +1,7 @@
 package Tools;
 
 
-import Actions.ObjectGenerator;
+import Utils.ObjectGenerator;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

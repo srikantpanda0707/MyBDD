@@ -1,7 +1,6 @@
-package Actions;
+package Utils;
 
 import Tools.*;
-import Utils.TestDatas;
 
 public class ObjectGenerator extends  BaseClass {
 

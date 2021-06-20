@@ -1,6 +1,6 @@
 package Tools;
 
-import Actions.ObjectGenerator;
+import Utils.ObjectGenerator;
 import Utils.ConfigDataProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +11,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class BaseClass {
 
-//    public WebDriver driver;
 
-    public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    public static ThreadLocal<WebDriver> Driver = new ThreadLocal<>();
     public static ThreadLocal<ObjectGenerator> OBJ = new ThreadLocal<>();
     public static ThreadLocal<ConfigDataProvider> CDP = new ThreadLocal<>();
 
@@ -25,12 +24,12 @@ public class BaseClass {
         CDP.set(new ConfigDataProvider());
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-            tlDriver.set(new ChromeDriver());
+            Driver.set(new ChromeDriver());
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            tlDriver.set(new FirefoxDriver());
+            Driver.set(new FirefoxDriver());
         } else if (browser.equalsIgnoreCase("IE")) {
-            tlDriver.set(new InternetExplorerDriver());
+            Driver.set(new InternetExplorerDriver());
         } else {
             System.out.println("Please pass the correct browser value: " + browser);
         }
@@ -40,7 +39,7 @@ public class BaseClass {
     }
 
     public WebDriver getDriver() {
-        return tlDriver.get();
+        return Driver.get();
     }
 
     public static synchronized  ObjectGenerator getObjectGenerator(){

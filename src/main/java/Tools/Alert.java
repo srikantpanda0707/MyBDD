@@ -1,10 +1,12 @@
 package Tools;
 
-import Actions.ObjectGenerator;
+import Utils.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
+import java.util.logging.Logger;
 
 public class Alert {
     ObjectGenerator OG = BaseClass.getObjectGenerator();
+    Logger log = Logger.getLogger(Alert.class.getName());
 
     public  boolean switchToAlert(WebDriver driver) {
         boolean isAlertSwitched = false;
@@ -12,7 +14,7 @@ public class Alert {
             driver.switchTo().alert();
             isAlertSwitched = true;
         } catch (Exception e) {
-            System.out.println("switchToAlert catch " + e.getMessage());
+            log.info("switchToAlert catch " + e.getMessage());
         }
         return isAlertSwitched;
     }
@@ -24,7 +26,7 @@ public class Alert {
             driver.switchTo().alert().accept();
             isAlertAccepted = true;
         } catch (Exception e) {
-            System.out.println("acceptAlert catch " + e.getMessage());
+            log.info("switchToAlert catch " + e.getMessage());
         }
         return isAlertAccepted;
     }
@@ -37,7 +39,7 @@ public class Alert {
             isAlertDismissed = true;
         }
         catch (Exception e){
-            System.out.println("Dismissalert catch " + e.getMessage());
+            log.info("Dismissalert catch " + e.getMessage());
         }
         return  isAlertDismissed;
     }
@@ -48,7 +50,7 @@ public class Alert {
             driver.switchTo().alert().getText();
             GetAltMss = true;
         } catch (Exception e) {
-            System.out.println("GetAlertMessage catch " + e.getMessage());
+            log.info("GetAlertMessage catch " + e.getMessage());
         }
         return GetAltMss;
     }
@@ -60,7 +62,7 @@ public class Alert {
             driver.switchTo().alert().accept();
             SendAlertText = true;
         } catch (Exception e) {
-            System.out.println("acceptAlertByText catch " + e.getMessage());
+            log.info("acceptAlertByText catch " + e.getMessage());
         }
         return SendAlertText;
     }
@@ -72,7 +74,7 @@ public class Alert {
             driver.switchTo().alert().dismiss();
             SendAlertText = true;
         } catch (Exception e) {
-            System.out.println("acceptAlertByText catch " + e.getMessage());
+            log.info("acceptAlertByText catch " + e.getMessage());
         }
         return SendAlertText;
     }

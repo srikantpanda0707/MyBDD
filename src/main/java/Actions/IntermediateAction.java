@@ -1,9 +1,9 @@
 package Actions;
 
 
-
 import OR.IntermediateUI;
 import Utils.ConfigDataProvider;
+import Utils.ObjectGenerator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,7 +28,7 @@ public class IntermediateAction extends IntermediateUI {
     public boolean SelectInputFormOption() {
         boolean isSelect = true;
         OG.ele.click(DDInputFormHomePage);
-        OG.ele.Builberclick(driver, ValInputFormHomePage,OG.testDatas.IFS);
+        OG.ele.Builberclick(driver, ValInputFormHomePage, OG.testDatas.IFS);
         return isSelect;
     }
 
@@ -46,7 +46,7 @@ public class IntermediateAction extends IntermediateUI {
         OG.sync.waitForSeconds(3000);
         List<WebElement> ele = driver.findElements(By.xpath(String.valueOf(VerifyTickIFS)));
         int count = ele.size();
-        if (count == 8){
+        if (count == 8) {
             OG.ele.click(BtnSendIFS);
             System.out.println("Verified the count");
         }
@@ -58,7 +58,7 @@ public class IntermediateAction extends IntermediateUI {
         OG.sync.waitForSeconds(3000);
         List<WebElement> ele1 = driver.findElements(By.xpath(String.valueOf(VerifySendIFS)));
         int count1 = ele1.size();
-        if (count1 == 9){
+        if (count1 == 9) {
             System.out.println("Verified the Send count");
         }
         return isVerified;
@@ -67,7 +67,7 @@ public class IntermediateAction extends IntermediateUI {
     public boolean SelectAjaxFormOption() {
         boolean isSelect = true;
         OG.ele.click(DDInputFormHomePage);
-        OG.ele.Builberclick(driver, ValInputFormHomePage,OG.testDatas.AFS);
+        OG.ele.Builberclick(driver, ValInputFormHomePage, OG.testDatas.AFS);
         return isSelect;
     }
 
@@ -88,7 +88,7 @@ public class IntermediateAction extends IntermediateUI {
 
     public boolean VerifytheSuccessmessage() {
         boolean isVerified = true;
-        OG.sync.ExplicityWait(driver,LblSubmitedSuccessfulAFS,5000);
+        OG.sync.ExplicityWait(driver, LblSubmitedSuccessfulAFS, 5000);
         OG.textBox.verifyElement(LblSubmitedSuccessfulAFS);
         return isVerified;
     }

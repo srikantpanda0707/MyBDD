@@ -1,6 +1,6 @@
 package Tools;
 
-import Actions.ObjectGenerator;
+import Utils.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
