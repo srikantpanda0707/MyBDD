@@ -1,5 +1,6 @@
 package Utils;
 
+import Actions.BasicAction;
 import Tools.*;
 
 public class ObjectGenerator extends  BaseClass {
@@ -13,6 +14,7 @@ public class ObjectGenerator extends  BaseClass {
     public TextBox textBox;
     public Window window;
     public TestDatas testDatas;
+//    public BasicAction basic;
 
 
 
@@ -25,6 +27,7 @@ public class ObjectGenerator extends  BaseClass {
         textBox = new TextBox();
          window = new Window();
          testDatas = new TestDatas();
+//         basic = new BasicAction();
     }
 
 }

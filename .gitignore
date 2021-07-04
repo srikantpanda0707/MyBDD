@@ -1,4 +1,9 @@
-target/**
-testoutput/**
-.idea/**
-**/*.class
+test-output\
+testoutput\
+target\
+application.log\
+.idea\
+classes\
+Extentpdf.pdf\
+Spark.html\
+testReport.html\

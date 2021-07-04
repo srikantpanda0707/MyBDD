@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 
 public class BasicAction extends BasicUI {
     private final WebDriver driver;
-
     ObjectGenerator OG = getObjectGenerator();
 
 
