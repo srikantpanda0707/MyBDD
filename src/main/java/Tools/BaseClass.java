@@ -1,6 +1,7 @@
 package Tools;
 
 import Utils.ObjectGenerator;
+import Utils.PropertyReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,6 +18,7 @@ public class BaseClass {
 
     public WebDriver init_driver(String browser) {
 
+
         System.out.println("browser value is: " + browser);
         OBJ.set(new ObjectGenerator());
         if (browser.equalsIgnoreCase("chrome")) {
@@ -31,15 +33,17 @@ public class BaseClass {
             System.out.println("Please pass the correct browser value: " + browser);
         }
         getDriver().manage().window().maximize();
+        getDriver().get(PropertyReader.getProperty("url"));
         return getDriver();
 
     }
+
 
     public WebDriver getDriver() {
         return Driver.get();
     }
 
-    public static synchronized  ObjectGenerator getObjectGenerator(){
+    public static synchronized ObjectGenerator getObjectGenerator() {
         return OBJ.get();
     }
 

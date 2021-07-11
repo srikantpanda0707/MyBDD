@@ -5,7 +5,7 @@ import Tools.*;
 
 public class ObjectGenerator extends  BaseClass {
 
-
+//    private static ObjectGenerator OBI;
     public Alert alert;
     public DropDown DD;
     public Elements ele;
@@ -14,10 +14,26 @@ public class ObjectGenerator extends  BaseClass {
     public TextBox textBox;
     public Window window;
     public TestDatas testDatas;
-//    public BasicAction basic;
 
-
-
+//    private ObjectGenerator(){
+//
+//    }
+//    public static ObjectGenerator getObjectInstance(){
+//        if (OBI == null){
+//            OBI = new ObjectGenerator();
+//        }
+//        return OBI;
+//    }
+//    public void getObjectClass(){
+//        alert = new Alert();
+//        DD = new DropDown();
+//        ele = new Elements();
+//        frame = new Frame();
+//        sync = new Sync();
+//        textBox = new TextBox();
+//        window = new Window();
+//        testDatas = new TestDatas();
+//    }
     public void initPage(){
          alert = new Alert();
          DD = new DropDown();
@@ -27,7 +43,6 @@ public class ObjectGenerator extends  BaseClass {
         textBox = new TextBox();
          window = new Window();
          testDatas = new TestDatas();
-//         basic = new BasicAction();
     }
 
 }
