@@ -1,17 +1,19 @@
 package parallel;
 
 import Actions.BasicAction;
-import Utils.FactoryAction;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
 
 import static org.junit.Assert.assertTrue;
 
 public class BasicSteps {
+   protected BasicAction ba;
 
-    BasicAction ba = new BasicAction();
+    public BasicSteps(WebDriver driver){
+     ba = new BasicAction(driver);}
 
     @Given("I verify selenium easy page opens")
     public void i_verify_selenium_easy_page_opens() {

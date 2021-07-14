@@ -1,6 +1,7 @@
 package Actions;
 
 import OR.BasicUI;
+import Tools.BaseClass;
 import Utils.ObjectGenerator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,12 +9,12 @@ import org.openqa.selenium.WebElement;
 
 public class BasicAction extends BasicUI {
     private final WebDriver driver;
-    ObjectGenerator OG = getObjectGenerator();
+    ObjectGenerator OG = BaseClass.getObjectGenerator();
 
 
-    public BasicAction() {
+    public BasicAction(WebDriver driver) {
         super();
-        this.driver = getDriver();
+        this.driver = driver;
         OG.initPage();
     }
 

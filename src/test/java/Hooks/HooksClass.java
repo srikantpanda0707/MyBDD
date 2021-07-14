@@ -3,6 +3,8 @@ package Hooks;
 import Tools.BaseClass;
 import Utils.ConfigDataProvider;
 import Utils.PropertyReader;
+import drivermanagement.factory.DriverManagerFactory;
+import drivermanagement.factory.DriverManagerFactoryImpl;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -10,11 +12,17 @@ import org.junit.Assume;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.logging.Logger;
 
 public class HooksClass {
 
     Logger log = Logger.getLogger(HooksClass.class.getName());
+    private DriverManagerFactory factory;
     private WebDriver driver;
 
 
@@ -28,12 +36,22 @@ public class HooksClass {
     }
 
     @Before(order = 1)
-    public void LaunchBrowser() {
+    public void LaunchBrowser() throws MalformedURLException {
         log.info("*************************Launching browser*****************************");
-        String browserName = PropertyReader.getProperty("browser");
-        BaseClass BC = new BaseClass();
-        driver = BC.init_driver(browserName);
+//        DesiredCapabilities dc = DesiredCapabilities.chrome();
+//        URL RL = new URL("http://localhost:4444/wd/hub");
+//        RemoteWebDriver Driver = new RemoteWebDriver(RL,dc);
+//        Driver.get(PropertyReader.getProperty("url"));
+//        System.out.println("title of page "+ Driver.getTitle());
+//        String browserName = PropertyReader.getProperty("browser");
+//        BaseClass BC = new BaseClass();
+//        driver = BC.init_driver(browserName);
+        factory = new DriverManagerFactoryImpl();
+        driver = factory
+                .getManager(PropertyReader.getProperty("browser"))
+                .getDriver();
         driver.get(PropertyReader.getProperty("url"));
+
     }
 
     @After(order = 0)
@@ -42,7 +60,7 @@ public class HooksClass {
         driver.quit();
     }
 
-    @After(order = 1)
+    @After(order = 0)
     public void ScreenShot(Scenario scenario) {
         if (scenario.isFailed()) {
             // take screenshot:

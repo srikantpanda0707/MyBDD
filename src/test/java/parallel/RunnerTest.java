@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = "src/test/resources/parallel",
         glue = {"parallel","Hooks"},
         plugin = {"pretty","html:testoutput/testReport.html","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        tags = "@TC10",
+        tags = "@TC01",
 //        dryRun = true,
         monochrome = true
 

@@ -24,6 +24,7 @@ public class IntermediateAction extends IntermediateUI {
 
     public boolean SelectInputFormOption() {
         boolean isSelect = true;
+//        ObjectGenerator.getObjectInstance().ele.click(DDInputFormHomePage);
         OG.ele.click(DDInputFormHomePage);
         OG.ele.Builberclick(driver, ValInputFormHomePage, OG.testDatas.IFS);
         return isSelect;
