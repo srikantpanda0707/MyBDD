@@ -12,11 +12,12 @@ import java.util.List;
 
 
 
+
 public class IntermediateAction extends IntermediateUI {
     private final WebDriver driver;
     ObjectGenerator OG = getObjectGenerator();
 
-    public IntermediateAction() {
+    public IntermediateAction( ) {
         super();
         this.driver = getDriver();
         OG.initPage();

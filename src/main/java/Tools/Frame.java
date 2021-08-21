@@ -4,8 +4,11 @@ import Utils.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static Tools.AppiumDriver.getObjectGenerator;
+
 public class Frame {
-    ObjectGenerator OG = BaseClass.getObjectGenerator();
+    ObjectGenerator OG = getObjectGenerator();
+//    ObjectGenerator OG = new ObjectGenerator();
 
     public  boolean checkFrame(WebDriver driver) {
         boolean isFramePresent = false;

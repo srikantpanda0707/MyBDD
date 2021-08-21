@@ -4,8 +4,12 @@ import Utils.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import java.util.logging.Logger;
 
+import static Tools.AppiumDriver.getObjectGenerator;
+
 public class Alert {
-    ObjectGenerator OG = BaseClass.getObjectGenerator();
+    ObjectGenerator OG = getObjectGenerator();
+
+//    ObjectGenerator OG = new ObjectGenerator();
     Logger log = Logger.getLogger(Alert.class.getName());
 
     public  boolean switchToAlert(WebDriver driver) {

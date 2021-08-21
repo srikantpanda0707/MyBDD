@@ -1,13 +1,17 @@
 package Tools;
 
 
+import Utils.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.*;
 
 import java.util.concurrent.TimeUnit;
 
+import static Tools.AppiumDriver.getObjectGenerator;
+
 public class Sync    {
+    ObjectGenerator OG = getObjectGenerator();
 
     public  void waitForSeconds(int lngSeconds) {
         try {

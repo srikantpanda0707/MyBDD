@@ -1,9 +1,9 @@
 package Utils;
 
-import Actions.BasicAction;
 import Tools.*;
 
 public class ObjectGenerator extends  BaseClass {
+//    protected WebDriver driver;
 
 //    private static ObjectGenerator OBI;
     public Alert alert;

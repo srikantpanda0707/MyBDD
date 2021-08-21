@@ -12,9 +12,10 @@ public class ActionContainer extends BaseClass {
     public IntermediateAction IA;
 
 
+
     private void initPages() {
-//        BA = new BasicAction(getDriver());
-//        IA = new IntermediateAction(getDriver());
+//        BA = new BasicAction(driver);
+//        IA = new IntermediateAction();
     }
 
 

@@ -1,10 +1,14 @@
 package Tools;
 
 
+import Utils.ObjectGenerator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import static Tools.AppiumDriver.getObjectGenerator;
+
 public class DropDown {
+    ObjectGenerator OG = getObjectGenerator();
 
     public  void selectByText(WebElement element, String strText) {
         if (element.isDisplayed()) {

@@ -7,9 +7,13 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import static Tools.AppiumDriver.getObjectGenerator;
+
+
 public class Window {
     Logger log = Logger.getLogger(Window.class.getName());
-    ObjectGenerator OG = BaseClass.getObjectGenerator();
+    ObjectGenerator OG = getObjectGenerator();
+//    ObjectGenerator OG = new ObjectGenerator();
 
     public  boolean focusWindow(WebDriver driver, int strWindowArrayValue) {
         boolean blResult = false;
@@ -48,9 +52,9 @@ public class Window {
             if (!parent.equalsIgnoreCase(Child)){
                 driver.switchTo().window(Child);
                 OG.sync.waitForSeconds(3000);
-                log.info("Swithced to child window");
+                log.info("Switched to child window");
             }else {
-                log.info("Not swithced to child window");
+                log.info("Not switched to child window");
             }
         }
     }
@@ -66,10 +70,10 @@ public class Window {
             if (!parent.equalsIgnoreCase(Child)){
                 driver.switchTo().window(tabs.get(number));
                 OG.sync.waitForSeconds(3000);
-                log.info("Swithced to child window");
+                log.info("Switched to child window");
             }else if(parent.equalsIgnoreCase(Child)) {
                 driver.switchTo().window(parent);
-                log.info("Not Swithced to child window" + driver.getTitle());
+                log.info("Not Switched to child window" + driver.getTitle());
             }
         }
     }

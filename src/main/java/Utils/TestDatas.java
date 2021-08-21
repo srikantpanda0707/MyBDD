@@ -1,6 +1,9 @@
 package Utils;
 
+import static Tools.AppiumDriver.getObjectGenerator;
+
 public class TestDatas {
+    ObjectGenerator OG = getObjectGenerator();
     public String URL = "http://demo.guru99.com/";
     public String MessageSimple = "Hulk";
     public String EnterA = "10";

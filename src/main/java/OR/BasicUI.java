@@ -1,18 +1,20 @@
 package OR;
 
+import Tools.AppiumDriver;
 import Tools.BaseClass;
+import Tools.RemoteDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasicUI  {
+public class BasicUI extends AppiumDriver {
     protected WebDriver driver;
 
     public BasicUI()
     {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 
     @FindBy(how = How.XPATH,using = "//a[contains(text(),'Selenium Easy')]")

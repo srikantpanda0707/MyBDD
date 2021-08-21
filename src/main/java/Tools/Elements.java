@@ -1,5 +1,6 @@
 package Tools;
 
+import Utils.ObjectGenerator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +9,10 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.logging.Logger;
 
+import static Tools.AppiumDriver.getObjectGenerator;
+
 public class Elements {
+    ObjectGenerator OG = getObjectGenerator();
 
     Logger log = Logger.getLogger(Elements.class.getName());
 

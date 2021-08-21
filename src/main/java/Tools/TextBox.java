@@ -7,8 +7,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static Tools.AppiumDriver.getObjectGenerator;
+
 public class TextBox   {
-    ObjectGenerator OG = BaseClass.getObjectGenerator();
+    ObjectGenerator OG = getObjectGenerator();
+//    ObjectGenerator OG = new ObjectGenerator();
 
     public  boolean enterValue(WebDriver driver, WebElement element, String strValue) {
         boolean isValueEntered = false;

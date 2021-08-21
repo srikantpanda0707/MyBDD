@@ -1,10 +1,8 @@
 package Hooks;
 
-import Tools.BaseClass;
-import Utils.ConfigDataProvider;
+import Tools.AppiumDriver;
+import Tools.RemoteDriver;
 import Utils.PropertyReader;
-import drivermanagement.factory.DriverManagerFactory;
-import drivermanagement.factory.DriverManagerFactoryImpl;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -12,13 +10,13 @@ import org.junit.Assume;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import java.net.MalformedURLException;
 import java.util.logging.Logger;
 
 public class HooksClass {
-    private DriverManagerFactory factory;
 
     Logger log = Logger.getLogger(HooksClass.class.getName());
-    private WebDriver driver;
+    protected WebDriver driver;
 
 
     @Before(value = "@Skip", order = 0)
@@ -29,23 +27,25 @@ public class HooksClass {
         Assume.assumeTrue(false);
 
     }
-
     @Before(order = 1)
-    public void LaunchBrowser() {
+    public void LaunchBrowser() throws MalformedURLException {
         log.info("*************************Launching browser*****************************");
-        //        DesiredCapabilities dc = DesiredCapabilities.chrome();
-//        URL RL = new URL("http://localhost:4444/wd/hub");
-//        RemoteWebDriver Driver = new RemoteWebDriver(RL,dc);
-//        Driver.get(PropertyReader.getProperty("url"));
-//        System.out.println("title of page "+ Driver.getTitle());
-//        String browserName = PropertyReader.getProperty("browser");
-//        BaseClass BC = new BaseClass();
-//        driver = BC.init_driver(browserName);
-        factory = new DriverManagerFactoryImpl();
-        driver = factory
-                .getManager(PropertyReader.getProperty("browser"))
-                .getDriver();
-        driver.get(PropertyReader.getProperty("url"));
+        AppiumDriver AP = new AppiumDriver();
+        String browser = PropertyReader.getProperty("browser");
+        driver = AP.init_APdriver(browser);
+
+//        RemoteDriver RD = new RemoteDriver();
+//        String browser = PropertyReader.getProperty("browser");
+//        driver = RD.init_Rdriver(browser);
+//        String browsername = PropertyReader.getProperty("browser");
+//        String browsername1 = PropertyReader.getProperty("browser1");
+//        if (browser.equalsIgnoreCase("chrome")) {
+//            BaseClass BC = new BaseClass();
+//            driver = BC.init_driver(browsername);
+//        }else if (browser.equalsIgnoreCase("firefox")){
+//            BaseClass BC = new BaseClass();
+//            driver = BC.init_driver(browsername1);
+//        }
 
     }
 

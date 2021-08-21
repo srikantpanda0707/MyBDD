@@ -2,11 +2,14 @@ package Utils;
 
 
 
+import Tools.BaseClass;
+import Tools.RemoteDriver;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigDataProvider {
+public class ConfigDataProvider extends BaseClass {
     private static ConfigDataProvider config;
     private Properties properties;
 
