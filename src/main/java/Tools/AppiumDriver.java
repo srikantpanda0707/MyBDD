@@ -2,21 +2,29 @@ package Tools;
 
 import Utils.ObjectGenerator;
 import Utils.PropertyReader;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class AppiumDriver {
 
-    public static ThreadLocal<RemoteWebDriver> ADriver = new ThreadLocal<>();
+    public static ThreadLocal<AndroidDriver<WebElement>> ADriver = new ThreadLocal<>();
     public static ThreadLocal<ObjectGenerator> OBJ = new ThreadLocal<>();
-    public static String remote_url = "http://0.0.0.0:4725/wd/hub";
+    public static URL remote_url;
+
+    static {
+        try {
+            remote_url = new URL("http://0.0.0.0:4723/wd/hub");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public WebDriver init_APdriver(String browser) throws MalformedURLException {
@@ -31,7 +39,7 @@ public class AppiumDriver {
             cap.setCapability("platformName", "Android");
             cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
             cap.setCapability(CapabilityType.VERSION, "9");
-            ADriver.set(new RemoteWebDriver(new URL(remote_url), cap));
+            ADriver.set(new AndroidDriver(remote_url,cap));
 
         } else if (browser.equalsIgnoreCase("firefox")) {
             System.out.println("Inside firefox");
@@ -41,10 +49,12 @@ public class AppiumDriver {
             cap.setCapability("platformName", "Android");
             cap.setCapability(CapabilityType.BROWSER_NAME, "Firefox");
             cap.setCapability(CapabilityType.VERSION, "9");
-            ADriver.set(new RemoteWebDriver(new URL(remote_url), cap));
+            ADriver.set(new AndroidDriver(remote_url,cap));
+//            ADriver.set(new RemoteWebDriver(new URL(remote_url), cap));
         }  else {
             System.out.println("Please pass the correct browser value: " + browser);
         }
+        getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         getDriver().get(PropertyReader.getProperty("url"));
         return getDriver();
 

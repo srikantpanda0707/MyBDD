@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class RemoteDriver {
     public static ThreadLocal<RemoteWebDriver> RDriver = new ThreadLocal<>();
@@ -32,6 +33,7 @@ public class RemoteDriver {
             System.out.println("Please pass the correct browser value: " + browser);
         }
         getDriver().manage().window().maximize();
+        getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         getDriver().get(PropertyReader.getProperty("url"));
         return getDriver();
 
