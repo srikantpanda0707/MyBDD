@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-
+import static Tools.BaseClass.getObjectGenerator;
 
 
 public class IntermediateAction extends IntermediateUI {
@@ -73,6 +73,7 @@ public class IntermediateAction extends IntermediateUI {
     public boolean VerifyMaditoryFieldByEmptyText() {
         boolean isVerified = true;
         OG.ele.click(BtnSubmitAFS);
+        OG.sync.waitForSeconds(5000);
         OG.textBox.verifyElement(LblMaditoryStarAFS);
         return isVerified;
     }

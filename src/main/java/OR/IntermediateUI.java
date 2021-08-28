@@ -2,13 +2,14 @@ package OR;
 
 
 import Tools.AppiumDriver;
+import Tools.BaseClass;
 import Tools.RemoteDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class IntermediateUI extends AppiumDriver {
+public class IntermediateUI extends BaseClass {
 
     public IntermediateUI() {
         PageFactory.initElements(getDriver(), this);

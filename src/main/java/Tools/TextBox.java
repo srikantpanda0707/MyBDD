@@ -7,7 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static Tools.AppiumDriver.getObjectGenerator;
+import static Tools.BaseClass.getObjectGenerator;
 
 public class TextBox   {
     ObjectGenerator OG = getObjectGenerator();

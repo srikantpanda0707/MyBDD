@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.*;
 
 import java.util.concurrent.TimeUnit;
 
-import static Tools.AppiumDriver.getObjectGenerator;
+import static Tools.BaseClass.getObjectGenerator;
 
 public class Sync    {
     ObjectGenerator OG = getObjectGenerator();

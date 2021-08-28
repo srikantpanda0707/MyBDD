@@ -14,14 +14,14 @@ public class BaseClass {
 
 
     public static ThreadLocal<WebDriver> Driver = new ThreadLocal<>();
-//    public static ThreadLocal<ObjectGenerator> OBJ = new ThreadLocal<>();
+    public static ThreadLocal<ObjectGenerator> OBJ = new ThreadLocal<>();
 
 
     public WebDriver init_driver(String browser) {
 
 
         System.out.println("browser value is: " + browser);
-//        OBJ.set(new ObjectGenerator());
+        OBJ.set(new ObjectGenerator());
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             Driver.set(new ChromeDriver());
@@ -44,9 +44,9 @@ public class BaseClass {
         return Driver.get();
     }
 
-//    public static synchronized ObjectGenerator getObjectGenerator() {
-//        return OBJ.get();
-//    }
+    public static synchronized ObjectGenerator getObjectGenerator() {
+        return OBJ.get();
+    }
 
 
 }

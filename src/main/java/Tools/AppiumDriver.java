@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -15,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class AppiumDriver {
 
     public static ThreadLocal<AndroidDriver<WebElement>> ADriver = new ThreadLocal<>();
-    public static ThreadLocal<ObjectGenerator> OBJ = new ThreadLocal<>();
+//    public static ThreadLocal<ObjectGenerator> OBJ = new ThreadLocal<>();
     public static URL remote_url;
 
     static {
@@ -28,7 +27,7 @@ public class AppiumDriver {
 
 
     public WebDriver init_APdriver(String browser) throws MalformedURLException {
-        OBJ.set(new ObjectGenerator());
+//        OBJ.set(new ObjectGenerator());
 
         System.out.println("browser value is: " + browser);
         if (browser.equalsIgnoreCase("chrome")) {
@@ -41,14 +40,15 @@ public class AppiumDriver {
             cap.setCapability(CapabilityType.VERSION, "9");
             ADriver.set(new AndroidDriver(remote_url,cap));
 
-        } else if (browser.equalsIgnoreCase("firefox")) {
+        } else if (browser.equalsIgnoreCase("Native")) {
             System.out.println("Inside firefox");
             DesiredCapabilities cap = new DesiredCapabilities();
 
             cap.setCapability("deviceName", "emulator-5554");
             cap.setCapability("platformName", "Android");
-            cap.setCapability(CapabilityType.BROWSER_NAME, "Firefox");
             cap.setCapability(CapabilityType.VERSION, "9");
+            cap.setCapability("appPackage","com.android.calculator2");
+            cap.setCapability("appActivity","com.android.calculator2.Calculator");
             ADriver.set(new AndroidDriver(remote_url,cap));
 //            ADriver.set(new RemoteWebDriver(new URL(remote_url), cap));
         }  else {
@@ -65,8 +65,8 @@ public class AppiumDriver {
         return ADriver.get();
     }
 
-    public static synchronized ObjectGenerator getObjectGenerator() {
-        return OBJ.get();
-    }
+//    public static synchronized ObjectGenerator getObjectGenerator() {
+//        return OBJ.get();
+//    }
 
 }

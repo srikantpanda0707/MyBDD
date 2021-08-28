@@ -4,7 +4,7 @@ import Utils.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static Tools.AppiumDriver.getObjectGenerator;
+import static Tools.BaseClass.getObjectGenerator;
 
 public class Frame {
     ObjectGenerator OG = getObjectGenerator();

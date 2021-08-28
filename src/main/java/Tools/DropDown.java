@@ -5,7 +5,7 @@ import Utils.ObjectGenerator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import static Tools.AppiumDriver.getObjectGenerator;
+import static Tools.BaseClass.getObjectGenerator;
 
 public class DropDown {
     ObjectGenerator OG = getObjectGenerator();

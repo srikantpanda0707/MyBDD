@@ -1,15 +1,16 @@
-        <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Suite" parallel="none">
-    <test name="FirefoxTest">
-        <parameter name="browser" value="firefox" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="classes">
+    <test name="RunChrome">
+        <parameter name="BrowserType" value="Chrome"/>
         <classes>
-            <class name="Tools.BaseClass" />
+            <class name="parallel.RunnerNGTest"/>
         </classes>
-    </test>
-    <test name="ChromeTest">
-        <parameter name="browser" value= "chrome" />
+</test>
+    <test name="RunFirefox">
+        <parameter name="BrowserType" value="Firefox"/>
         <classes>
-            <class name="Tools.BaseClass" />
+            <class name="parallel.RunnerNGTest"/>
         </classes>
     </test>
 </suite>

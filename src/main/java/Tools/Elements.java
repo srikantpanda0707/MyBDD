@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.logging.Logger;
 
-import static Tools.AppiumDriver.getObjectGenerator;
+import static Tools.BaseClass.getObjectGenerator;
 
 public class Elements {
     ObjectGenerator OG = getObjectGenerator();

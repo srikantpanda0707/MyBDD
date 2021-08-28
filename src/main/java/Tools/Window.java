@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import static Tools.AppiumDriver.getObjectGenerator;
+import static Tools.BaseClass.getObjectGenerator;
 
 
 public class Window {

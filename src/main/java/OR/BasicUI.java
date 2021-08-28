@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasicUI extends AppiumDriver {
+public class BasicUI extends BaseClass {
     protected WebDriver driver;
 
     public BasicUI()

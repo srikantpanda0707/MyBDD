@@ -4,9 +4,11 @@ import Utils.ObjectGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static Tools.BaseClass.getObjectGenerator;
+
 public class Checkbox {
-//    ObjectGenerator OG = BaseClass.getObjectGenerator();
-        ObjectGenerator OG = new ObjectGenerator();
+
+ObjectGenerator OG = getObjectGenerator();
 
     public  boolean check(WebDriver driver, WebElement element) {
         boolean isChecked = false;
